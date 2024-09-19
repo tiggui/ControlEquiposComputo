@@ -16,5 +16,6 @@ namespace ControlEquiposComputo.Data
         public DbSet<Reserva> Reservas { get; set; }
 
        
+        //DD
     }
 }
