@@ -9,7 +9,7 @@ namespace ControlEquiposComputo.Models
 
         [Required]
         [StringLength(100)]
-        public string NombreLaboratorio { get; set; }
+        public string NombreLaboratorioo { get; set; }
 
         public string Ubicacion { get; set; }
 
