@@ -31,9 +31,9 @@
                 <td>@item.HoraInicio</td>
                 <td>@item.HoraFin</td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.ReservaID">Editar</a> |
-                    <a asp-action="Details" asp-route-id="@item.ReservaID">Detalles</a> |
-                    <a asp-action="Delete" asp-route-id="@item.ReservaID">Eliminar</a>
+                    <a asp-action="Edit" asp-route-id="@item.ReservaID" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a> |
+                    <a asp-action="Details" asp-route-id="@item.ReservaID" class="btn btn-sm btn-secondary"><i class="fas fa-info-circle"></i></a> |
+                    <a asp-action="Delete" asp-route-id="@item.ReservaID" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                 </td>
             </tr>
         }

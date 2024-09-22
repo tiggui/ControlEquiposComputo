@@ -33,9 +33,9 @@
                 <td>@item.Estado</td>
                 <td>@item.Laboratorio.NombreLaboratorio</td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.EquipoID">Editar</a> |
-                    <a asp-action="Details" asp-route-id="@item.EquipoID">Detalles</a> |
-                    <a asp-action="Delete" asp-route-id="@item.EquipoID">Eliminar</a>
+                    <a asp-action="Edit" asp-route-id="@item.EquipoID" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a> |
+                    <a asp-action="Details" asp-route-id="@item.EquipoID" class="btn btn-sm btn-secondary"><i class="fas fa-info-circle"></i></a> |
+                    <a asp-action="Delete" asp-route-id="@item.EquipoID" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                 </td>
             </tr>
         }

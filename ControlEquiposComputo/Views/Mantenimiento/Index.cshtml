@@ -29,9 +29,9 @@
                 <td>@item.FechaMantenimiento.ToShortDateString()</td>
                 <td>@item.Descripcion</td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.MantenimientoID">Editar</a> |
-                    <a asp-action="Details" asp-route-id="@item.MantenimientoID">Detalles</a> |
-                    <a asp-action="Delete" asp-route-id="@item.MantenimientoID">Eliminar</a>
+                    <a asp-action="Edit" asp-route-id="@item.MantenimientoID" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a> |
+                    <a asp-action="Details" asp-route-id="@item.MantenimientoID" class="btn btn-sm btn-secondary"><i class="fas fa-info-circle"></i></a> |
+                    <a asp-action="Delete" asp-route-id="@item.MantenimientoID"  class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                 </td>
             </tr>
         }
