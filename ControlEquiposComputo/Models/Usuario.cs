@@ -18,6 +18,6 @@ namespace ControlEquiposComputo.Models
         [EmailAddress]
         public string Email { get; set; }
 
-        public string TipoUsuario { get; set; }
+        public string TipoUsuario { get; set; } // Ej. Administrador, Profesor, Técnico
     }
 }

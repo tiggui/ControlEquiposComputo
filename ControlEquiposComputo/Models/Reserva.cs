@@ -11,7 +11,7 @@ namespace ControlEquiposComputo.Models
         public int UsuarioID { get; set; }
 
         [Required]
-        public int SalaID { get; set; }
+        public int LaboratorioID { get; set; }
 
         public DateTime FechaReserva { get; set; }
 

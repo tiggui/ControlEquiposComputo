@@ -1,0 +1,55 @@
+﻿@model IEnumerable<ControlEquiposComputo.Models.Laboratorio>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Laboratorios</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Crear Nuevo Laboratorio</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreLaboratorio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ubicacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Capacidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Responsable)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NombreLaboratorio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ubicacion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Capacidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Responsable)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.LaboratorioID">Editar</a> |
+                    <a asp-action="Detalles" asp-route-id="@item.LaboratorioID">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.LaboratorioID">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

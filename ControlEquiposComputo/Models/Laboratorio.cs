@@ -7,7 +7,7 @@ namespace ControlEquiposComputo.Models
         [Key]
         public int LaboratorioID { get; set; }
 
-        [Required]
+        //[Required]
         [StringLength(100)]
         public string NombreLaboratorio { get; set; }
 

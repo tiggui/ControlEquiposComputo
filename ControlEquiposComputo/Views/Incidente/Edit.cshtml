@@ -1,0 +1,54 @@
+﻿@model ControlEquiposComputo.Models.Incidente
+
+@{
+    ViewData["Title"] = "Editar Incidente";
+}
+
+<h2>Editar Incidente</h2>
+
+<form asp-action="Edit">
+    <input type="hidden" asp-for="IncidenteID" />
+    <div class="form-group">
+        <label asp-for="LaboratorioID" class="control-label"></label>
+        <select asp-for="LaboratorioID" class="form-control" asp-items="ViewBag.LaboratorioID"></select>
+        <span asp-validation-for="LaboratorioID" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="EquipoID" class="control-label"></label>
+        <select asp-for="EquipoID" class="form-control" asp-items="ViewBag.EquipoID"></select>
+        <span asp-validation-for="EquipoID" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="UsuarioID" class="control-label"></label>
+        <select asp-for="UsuarioID" class="form-control" asp-items="ViewBag.UsuarioID"></select>
+        <span asp-validation-for="UsuarioID" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="TecnicoID" class="control-label"></label>
+        <select asp-for="TecnicoID" class="form-control" asp-items="ViewBag.TecnicoID"></select>
+        <span asp-validation-for="TecnicoID" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="FechaIncidente" class="control-label"></label>
+        <input asp-for="FechaIncidente" class="form-control" type="date" />
+        <span asp-validation-for="FechaIncidente" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Descripcion" class="control-label"></label>
+        <textarea asp-for="Descripcion" class="form-control"></textarea>
+        <span asp-validation-for="Descripcion" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Estado" class="control-label"></label>
+        <select asp-for="Estado" class="form-control">
+            <option>Pendiente</option>
+            <option>En proceso</option>
+            <option>Resuelto</option>
+        </select>
+        <span asp-validation-for="Estado" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Guardar Cambios" class="btn btn-primary" />
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </div>
+</form>

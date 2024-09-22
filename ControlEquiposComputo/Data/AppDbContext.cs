@@ -14,8 +14,10 @@ namespace ControlEquiposComputo.Data
         public DbSet<Mantenimiento> Mantenimientos { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Reserva> Reservas { get; set; }
+        public DbSet<Incidente> Incidentes { get; set; }
+        public DbSet<Tecnico> Tecnicos { get; set; }
+        public DbSet<UsoEquipo> UsoEquipos { get; set; }
+   
 
-       
-        //DD
     }
 }

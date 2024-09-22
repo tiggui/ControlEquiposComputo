@@ -8,7 +8,7 @@ namespace ControlEquiposComputo.Models
         public int EquipoID { get; set; }
 
         [Required]
-        public int SalaID { get; set; }
+        public int LaboratorioID { get; set; }
 
         [Required]
         [StringLength(50)]
@@ -20,9 +20,9 @@ namespace ControlEquiposComputo.Models
 
         public string NumeroSerie { get; set; }
 
-        public string Estado { get; set; }
+        public string Estado { get; set; }//Activo, Inactivo, En Reparación
 
         // Relación con Laboratorio
-        public virtual Laboratorio Labaratorio { get; set; }
+        public virtual Laboratorio Laboratorio { get; set; }
     }
 }

@@ -1,0 +1,32 @@
+﻿@model ControlEquiposComputo.Models.Laboratorio
+
+@{
+    ViewData["Title"] = "Eliminar Laboratorio";
+}
+
+<h2>Eliminar Laboratorio</h2>
+
+<h3>¿Estás seguro de que deseas eliminar este laboratorio?</h3>
+
+<div>
+    <h4>Laboratorio</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Nombre</dt>
+        <dd class="col-sm-10">@Model.NombreLaboratorio</dd>
+        <dt class="col-sm-2">Ubicación</dt>
+        <dd class="col-sm-10">@Model.Ubicacion</dd>
+        <dt class="col-sm-2">Capacidad</dt>
+        <dd class="col-sm-10">@Model.Capacidad</dd>
+        <dt class="col-sm-2">Responsable</dt>
+        <dd class="col-sm-10">@Model.Responsable</dd>
+    </dl>
+</div>
+
+<form asp-action="Delete">
+    <input type="hidden" asp-for="LaboratorioID" />
+    <div class="form-group">
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index">Cancelar</a>
+    </div>
+</form>

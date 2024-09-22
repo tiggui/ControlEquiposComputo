@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ControlEquiposComputo.Models.Incidente>
+
+@{
+    ViewData["Title"] = "Lista de Incidentes";
+}
+
+<h2>Incidentes</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Registrar Nuevo Incidente</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Laboratorio</th>
+            <th>Equipo</th>
+            <th>Usuario</th>
+            <th>Técnico</th>
+            <th>Fecha de Incidente</th>
+            <th>Descripción</th>
+            <th>Estado</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Laboratorio.NombreLaboratorio</td>
+                <td>@(item.Equipo != null ? item.Equipo.Marca : "N/A")</td>
+                <td>@item.Usuario.Nombre</td>
+                <td>@item.Tecnico.Nombre</td>
+                <td>@item.FechaIncidente.ToShortDateString()</td>
+                <td>@item.Descripcion</td>
+                <td>@item.Estado</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IncidenteID">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.IncidenteID">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.IncidenteID">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

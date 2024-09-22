@@ -14,9 +14,10 @@ namespace ControlEquiposComputo.Models
 
         public string Descripcion { get; set; }
 
-        public string Tecnico { get; set; }
+        public int TecnicoID { get; set; }
 
         // Relación con equipo
         public virtual Equipo Equipo { get; set; }
+        public virtual Tecnico Tecnico { get; set; }
     }
 }

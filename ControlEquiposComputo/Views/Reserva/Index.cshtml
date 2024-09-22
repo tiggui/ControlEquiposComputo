@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ControlEquiposComputo.Models.Reserva>
+
+@{
+    ViewData["Title"] = "Lista de Reservas";
+}
+
+<h2>Reservas de Laboratorios</h2>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Registrar Nueva Reserva</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Usuario</th>
+            <th>Laboratorio</th>
+            <th>Fecha de Reserva</th>
+            <th>Hora Inicio</th>
+            <th>Hora Fin</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Usuario.Nombre</td>
+                <td>@item.Laboratorio.NombreLaboratorio</td>
+                <td>@item.FechaReserva.ToShortDateString()</td>
+                <td>@item.HoraInicio</td>
+                <td>@item.HoraFin</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ReservaID">Editar</a> |
+                    <a asp-action="Details" asp-route-id="@item.ReservaID">Detalles</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ReservaID">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
