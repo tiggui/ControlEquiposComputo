@@ -7,7 +7,7 @@
 <h2>Usuarios</h2>
 
 <p>
-    <a asp-action="Create" class="btn btn-primary">Crear Nuevo Usuario</a>
+    <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i> Crear Nuevo Usuario</a>
 </p>
 
 <table class="table">
@@ -45,9 +45,9 @@
                     @Html.DisplayFor(modelItem => item.TipoUsuario)
                 </td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.UsuarioID">Editar</a> |
-                    <a asp-action="Details" asp-route-id="@item.UsuarioID">Detalles</a> |
-                    <a asp-action="Delete" asp-route-id="@item.UsuarioID">Eliminar</a>
+                    <a asp-action="Edit" asp-route-id="@item.UsuarioID" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a> |
+                    <a asp-action="Details" asp-route-id="@item.UsuarioID" class="btn btn-sm btn-secondary"><i class="fas fa-info-circle"></i></a> |
+                    <a asp-action="Delete" asp-route-id="@item.UsuarioID"class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
                 </td>
             </tr>
         }
