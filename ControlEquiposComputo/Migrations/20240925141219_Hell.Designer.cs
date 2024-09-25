@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ControlEquiposComputo.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240925130423_f")]
-    partial class f
+    [Migration("20240925141219_Hell")]
+    partial class Hell
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -803,6 +803,12 @@ namespace ControlEquiposComputo.Migrations
                     b.Property<DateTime>("FechaRegistro")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Imagen")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Incidentes")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("RegistrarIncidente")
                         .HasColumnType("bit");
 
@@ -821,120 +827,132 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 1,
                             Actividad = "Actividad 1",
-                            ClaseID = 6,
-                            EquipoID = 18,
-                            EstudianteID = 2,
-                            FechaRegistro = new DateTime(2024, 9, 26, 11, 9, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 3,
+                            EquipoID = 2,
+                            EstudianteID = 4,
+                            FechaRegistro = new DateTime(2024, 9, 25, 3, 52, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 2,
                             Actividad = "Actividad 2",
-                            ClaseID = 13,
-                            EquipoID = 3,
-                            EstudianteID = 8,
-                            FechaRegistro = new DateTime(2024, 9, 26, 10, 17, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 9,
+                            EquipoID = 18,
+                            EstudianteID = 4,
+                            FechaRegistro = new DateTime(2024, 9, 25, 0, 43, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 3,
                             Actividad = "Actividad 3",
-                            ClaseID = 2,
-                            EquipoID = 8,
-                            EstudianteID = 2,
-                            FechaRegistro = new DateTime(2024, 9, 26, 7, 38, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 15,
+                            EquipoID = 19,
+                            EstudianteID = 5,
+                            FechaRegistro = new DateTime(2024, 9, 25, 1, 46, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 4,
                             Actividad = "Actividad 4",
-                            ClaseID = 11,
-                            EquipoID = 14,
-                            EstudianteID = 10,
-                            FechaRegistro = new DateTime(2024, 9, 25, 23, 59, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 4,
+                            EquipoID = 6,
+                            EstudianteID = 4,
+                            FechaRegistro = new DateTime(2024, 9, 25, 14, 26, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 5,
                             Actividad = "Actividad 5",
-                            ClaseID = 10,
-                            EquipoID = 7,
+                            ClaseID = 15,
+                            EquipoID = 2,
                             EstudianteID = 8,
-                            FechaRegistro = new DateTime(2024, 9, 25, 9, 45, 0, 0, DateTimeKind.Unspecified),
+                            FechaRegistro = new DateTime(2024, 9, 26, 18, 29, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 6,
                             Actividad = "Actividad 6",
-                            ClaseID = 11,
-                            EquipoID = 9,
-                            EstudianteID = 10,
-                            FechaRegistro = new DateTime(2024, 9, 26, 10, 16, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 7,
+                            EquipoID = 8,
+                            EstudianteID = 1,
+                            FechaRegistro = new DateTime(2024, 9, 26, 8, 21, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 7,
                             Actividad = "Actividad 7",
-                            ClaseID = 1,
-                            EquipoID = 11,
-                            EstudianteID = 6,
-                            FechaRegistro = new DateTime(2024, 9, 25, 19, 29, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 2,
+                            EquipoID = 6,
+                            EstudianteID = 2,
+                            FechaRegistro = new DateTime(2024, 9, 25, 19, 17, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 8,
                             Actividad = "Actividad 8",
-                            ClaseID = 9,
-                            EquipoID = 3,
-                            EstudianteID = 3,
-                            FechaRegistro = new DateTime(2024, 9, 25, 11, 12, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 5,
+                            EquipoID = 7,
+                            EstudianteID = 1,
+                            FechaRegistro = new DateTime(2024, 9, 26, 8, 57, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 9,
                             Actividad = "Actividad 9",
-                            ClaseID = 14,
-                            EquipoID = 18,
-                            EstudianteID = 7,
-                            FechaRegistro = new DateTime(2024, 9, 25, 0, 3, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 11,
+                            EquipoID = 15,
+                            EstudianteID = 4,
+                            FechaRegistro = new DateTime(2024, 9, 25, 19, 51, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 10,
                             Actividad = "Actividad 10",
-                            ClaseID = 14,
-                            EquipoID = 18,
-                            EstudianteID = 9,
-                            FechaRegistro = new DateTime(2024, 9, 26, 14, 43, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 4,
+                            EquipoID = 19,
+                            EstudianteID = 7,
+                            FechaRegistro = new DateTime(2024, 9, 25, 19, 11, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 11,
                             Actividad = "Actividad 11",
-                            ClaseID = 5,
-                            EquipoID = 1,
-                            EstudianteID = 5,
-                            FechaRegistro = new DateTime(2024, 9, 25, 8, 47, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 12,
+                            EquipoID = 11,
+                            EstudianteID = 9,
+                            FechaRegistro = new DateTime(2024, 9, 25, 23, 6, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 12,
                             Actividad = "Actividad 12",
-                            ClaseID = 13,
-                            EquipoID = 17,
-                            EstudianteID = 7,
-                            FechaRegistro = new DateTime(2024, 9, 25, 10, 20, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 4,
+                            EquipoID = 7,
+                            EstudianteID = 1,
+                            FechaRegistro = new DateTime(2024, 9, 25, 21, 49, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
@@ -942,9 +960,10 @@ namespace ControlEquiposComputo.Migrations
                             UsoEquipoID = 13,
                             Actividad = "Actividad 13",
                             ClaseID = 8,
-                            EquipoID = 16,
-                            EstudianteID = 4,
-                            FechaRegistro = new DateTime(2024, 9, 26, 2, 40, 0, 0, DateTimeKind.Unspecified),
+                            EquipoID = 14,
+                            EstudianteID = 6,
+                            FechaRegistro = new DateTime(2024, 9, 26, 5, 21, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
@@ -952,249 +971,274 @@ namespace ControlEquiposComputo.Migrations
                             UsoEquipoID = 14,
                             Actividad = "Actividad 14",
                             ClaseID = 12,
-                            EquipoID = 6,
-                            EstudianteID = 5,
-                            FechaRegistro = new DateTime(2024, 9, 25, 5, 8, 0, 0, DateTimeKind.Unspecified),
+                            EquipoID = 2,
+                            EstudianteID = 6,
+                            FechaRegistro = new DateTime(2024, 9, 26, 14, 0, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 15,
                             Actividad = "Actividad 15",
-                            ClaseID = 13,
-                            EquipoID = 20,
-                            EstudianteID = 5,
-                            FechaRegistro = new DateTime(2024, 9, 25, 23, 17, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 2,
+                            EquipoID = 13,
+                            EstudianteID = 2,
+                            FechaRegistro = new DateTime(2024, 9, 26, 19, 19, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 16,
                             Actividad = "Actividad 16",
-                            ClaseID = 12,
-                            EquipoID = 4,
+                            ClaseID = 7,
+                            EquipoID = 3,
                             EstudianteID = 8,
-                            FechaRegistro = new DateTime(2024, 9, 25, 12, 48, 0, 0, DateTimeKind.Unspecified),
+                            FechaRegistro = new DateTime(2024, 9, 25, 16, 35, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 17,
                             Actividad = "Actividad 17",
-                            ClaseID = 9,
-                            EquipoID = 4,
-                            EstudianteID = 10,
-                            FechaRegistro = new DateTime(2024, 9, 25, 4, 11, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 6,
+                            EquipoID = 9,
+                            EstudianteID = 4,
+                            FechaRegistro = new DateTime(2024, 9, 25, 23, 26, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 18,
                             Actividad = "Actividad 18",
-                            ClaseID = 7,
-                            EquipoID = 9,
-                            EstudianteID = 7,
-                            FechaRegistro = new DateTime(2024, 9, 26, 17, 8, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 6,
+                            EquipoID = 5,
+                            EstudianteID = 1,
+                            FechaRegistro = new DateTime(2024, 9, 25, 13, 18, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 19,
                             Actividad = "Actividad 19",
-                            ClaseID = 3,
-                            EquipoID = 4,
-                            EstudianteID = 2,
-                            FechaRegistro = new DateTime(2024, 9, 26, 4, 54, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 1,
+                            EquipoID = 18,
+                            EstudianteID = 9,
+                            FechaRegistro = new DateTime(2024, 9, 26, 18, 51, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 20,
                             Actividad = "Actividad 20",
-                            ClaseID = 15,
-                            EquipoID = 3,
-                            EstudianteID = 5,
-                            FechaRegistro = new DateTime(2024, 9, 26, 6, 15, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 5,
+                            EquipoID = 19,
+                            EstudianteID = 4,
+                            FechaRegistro = new DateTime(2024, 9, 26, 19, 14, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 21,
                             Actividad = "Actividad 21",
-                            ClaseID = 8,
-                            EquipoID = 12,
-                            EstudianteID = 7,
-                            FechaRegistro = new DateTime(2024, 9, 25, 8, 27, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 15,
+                            EquipoID = 3,
+                            EstudianteID = 5,
+                            FechaRegistro = new DateTime(2024, 9, 26, 21, 44, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 22,
                             Actividad = "Actividad 22",
-                            ClaseID = 3,
-                            EquipoID = 18,
-                            EstudianteID = 8,
-                            FechaRegistro = new DateTime(2024, 9, 26, 1, 58, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 4,
+                            EquipoID = 3,
+                            EstudianteID = 4,
+                            FechaRegistro = new DateTime(2024, 9, 25, 5, 10, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 23,
                             Actividad = "Actividad 23",
-                            ClaseID = 3,
-                            EquipoID = 4,
-                            EstudianteID = 2,
-                            FechaRegistro = new DateTime(2024, 9, 25, 16, 4, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 11,
+                            EquipoID = 1,
+                            EstudianteID = 8,
+                            FechaRegistro = new DateTime(2024, 9, 26, 11, 6, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 24,
                             Actividad = "Actividad 24",
-                            ClaseID = 12,
-                            EquipoID = 18,
+                            ClaseID = 1,
+                            EquipoID = 6,
                             EstudianteID = 8,
-                            FechaRegistro = new DateTime(2024, 9, 25, 15, 47, 0, 0, DateTimeKind.Unspecified),
+                            FechaRegistro = new DateTime(2024, 9, 26, 10, 3, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 25,
                             Actividad = "Actividad 25",
-                            ClaseID = 5,
-                            EquipoID = 18,
-                            EstudianteID = 5,
-                            FechaRegistro = new DateTime(2024, 9, 25, 12, 42, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 8,
+                            EquipoID = 6,
+                            EstudianteID = 3,
+                            FechaRegistro = new DateTime(2024, 9, 25, 12, 38, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 26,
                             Actividad = "Actividad 26",
-                            ClaseID = 4,
-                            EquipoID = 17,
-                            EstudianteID = 10,
-                            FechaRegistro = new DateTime(2024, 9, 26, 13, 13, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 8,
+                            EquipoID = 16,
+                            EstudianteID = 2,
+                            FechaRegistro = new DateTime(2024, 9, 26, 18, 11, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 27,
                             Actividad = "Actividad 27",
-                            ClaseID = 14,
-                            EquipoID = 8,
-                            EstudianteID = 5,
-                            FechaRegistro = new DateTime(2024, 9, 26, 1, 42, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 11,
+                            EquipoID = 1,
+                            EstudianteID = 2,
+                            FechaRegistro = new DateTime(2024, 9, 26, 18, 40, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 28,
                             Actividad = "Actividad 28",
-                            ClaseID = 15,
-                            EquipoID = 18,
-                            EstudianteID = 3,
-                            FechaRegistro = new DateTime(2024, 9, 26, 10, 1, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 9,
+                            EquipoID = 11,
+                            EstudianteID = 4,
+                            FechaRegistro = new DateTime(2024, 9, 26, 18, 16, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 29,
                             Actividad = "Actividad 29",
-                            ClaseID = 5,
-                            EquipoID = 10,
-                            EstudianteID = 8,
-                            FechaRegistro = new DateTime(2024, 9, 26, 8, 39, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 7,
+                            EquipoID = 17,
+                            EstudianteID = 7,
+                            FechaRegistro = new DateTime(2024, 9, 26, 20, 47, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 30,
                             Actividad = "Actividad 30",
-                            ClaseID = 2,
-                            EquipoID = 9,
-                            EstudianteID = 5,
-                            FechaRegistro = new DateTime(2024, 9, 25, 14, 42, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 4,
+                            EquipoID = 4,
+                            EstudianteID = 6,
+                            FechaRegistro = new DateTime(2024, 9, 25, 15, 42, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 31,
                             Actividad = "Actividad 31",
-                            ClaseID = 8,
-                            EquipoID = 18,
-                            EstudianteID = 1,
-                            FechaRegistro = new DateTime(2024, 9, 26, 5, 31, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 14,
+                            EquipoID = 14,
+                            EstudianteID = 9,
+                            FechaRegistro = new DateTime(2024, 9, 25, 5, 13, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 32,
                             Actividad = "Actividad 32",
-                            ClaseID = 10,
-                            EquipoID = 3,
-                            EstudianteID = 9,
-                            FechaRegistro = new DateTime(2024, 9, 26, 7, 2, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 9,
+                            EquipoID = 1,
+                            EstudianteID = 10,
+                            FechaRegistro = new DateTime(2024, 9, 26, 9, 22, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 33,
                             Actividad = "Actividad 33",
-                            ClaseID = 2,
-                            EquipoID = 16,
-                            EstudianteID = 4,
-                            FechaRegistro = new DateTime(2024, 9, 26, 16, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 15,
+                            EquipoID = 5,
+                            EstudianteID = 8,
+                            FechaRegistro = new DateTime(2024, 9, 25, 18, 19, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 34,
                             Actividad = "Actividad 34",
-                            ClaseID = 2,
-                            EquipoID = 6,
+                            ClaseID = 11,
+                            EquipoID = 9,
                             EstudianteID = 4,
-                            FechaRegistro = new DateTime(2024, 9, 26, 17, 57, 0, 0, DateTimeKind.Unspecified),
+                            FechaRegistro = new DateTime(2024, 9, 25, 15, 39, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 35,
                             Actividad = "Actividad 35",
-                            ClaseID = 3,
-                            EquipoID = 4,
-                            EstudianteID = 9,
-                            FechaRegistro = new DateTime(2024, 9, 25, 3, 16, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 4,
+                            EquipoID = 3,
+                            EstudianteID = 7,
+                            FechaRegistro = new DateTime(2024, 9, 26, 13, 52, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 36,
                             Actividad = "Actividad 36",
-                            ClaseID = 2,
-                            EquipoID = 4,
-                            EstudianteID = 5,
-                            FechaRegistro = new DateTime(2024, 9, 26, 3, 51, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 15,
+                            EquipoID = 5,
+                            EstudianteID = 2,
+                            FechaRegistro = new DateTime(2024, 9, 25, 16, 58, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 37,
                             Actividad = "Actividad 37",
-                            ClaseID = 5,
-                            EquipoID = 14,
+                            ClaseID = 7,
+                            EquipoID = 1,
                             EstudianteID = 1,
-                            FechaRegistro = new DateTime(2024, 9, 25, 18, 2, 0, 0, DateTimeKind.Unspecified),
+                            FechaRegistro = new DateTime(2024, 9, 26, 4, 10, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 38,
                             Actividad = "Actividad 38",
-                            ClaseID = 11,
-                            EquipoID = 15,
-                            EstudianteID = 10,
-                            FechaRegistro = new DateTime(2024, 9, 26, 11, 43, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 14,
+                            EquipoID = 5,
+                            EstudianteID = 2,
+                            FechaRegistro = new DateTime(2024, 9, 26, 5, 10, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
@@ -1202,29 +1246,32 @@ namespace ControlEquiposComputo.Migrations
                             UsoEquipoID = 39,
                             Actividad = "Actividad 39",
                             ClaseID = 13,
-                            EquipoID = 12,
-                            EstudianteID = 4,
-                            FechaRegistro = new DateTime(2024, 9, 25, 2, 16, 0, 0, DateTimeKind.Unspecified),
+                            EquipoID = 9,
+                            EstudianteID = 2,
+                            FechaRegistro = new DateTime(2024, 9, 25, 13, 38, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 40,
                             Actividad = "Actividad 40",
-                            ClaseID = 7,
-                            EquipoID = 20,
-                            EstudianteID = 5,
-                            FechaRegistro = new DateTime(2024, 9, 26, 4, 53, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 10,
+                            EquipoID = 8,
+                            EstudianteID = 4,
+                            FechaRegistro = new DateTime(2024, 9, 25, 18, 29, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 41,
                             Actividad = "Actividad 41",
-                            ClaseID = 4,
-                            EquipoID = 7,
-                            EstudianteID = 2,
-                            FechaRegistro = new DateTime(2024, 9, 26, 12, 11, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 13,
+                            EquipoID = 16,
+                            EstudianteID = 4,
+                            FechaRegistro = new DateTime(2024, 9, 26, 23, 26, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
@@ -1232,89 +1279,98 @@ namespace ControlEquiposComputo.Migrations
                             UsoEquipoID = 42,
                             Actividad = "Actividad 42",
                             ClaseID = 15,
-                            EquipoID = 17,
-                            EstudianteID = 7,
-                            FechaRegistro = new DateTime(2024, 9, 25, 12, 0, 0, 0, DateTimeKind.Unspecified),
+                            EquipoID = 19,
+                            EstudianteID = 2,
+                            FechaRegistro = new DateTime(2024, 9, 25, 1, 12, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 43,
                             Actividad = "Actividad 43",
-                            ClaseID = 3,
-                            EquipoID = 9,
-                            EstudianteID = 5,
-                            FechaRegistro = new DateTime(2024, 9, 26, 18, 26, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 10,
+                            EquipoID = 19,
+                            EstudianteID = 1,
+                            FechaRegistro = new DateTime(2024, 9, 25, 14, 10, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 44,
                             Actividad = "Actividad 44",
-                            ClaseID = 2,
-                            EquipoID = 11,
-                            EstudianteID = 9,
-                            FechaRegistro = new DateTime(2024, 9, 26, 10, 32, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 12,
+                            EquipoID = 19,
+                            EstudianteID = 2,
+                            FechaRegistro = new DateTime(2024, 9, 25, 16, 6, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 45,
                             Actividad = "Actividad 45",
-                            ClaseID = 3,
-                            EquipoID = 18,
-                            EstudianteID = 4,
-                            FechaRegistro = new DateTime(2024, 9, 25, 21, 4, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 9,
+                            EquipoID = 2,
+                            EstudianteID = 7,
+                            FechaRegistro = new DateTime(2024, 9, 26, 11, 5, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 46,
                             Actividad = "Actividad 46",
-                            ClaseID = 14,
-                            EquipoID = 14,
-                            EstudianteID = 7,
-                            FechaRegistro = new DateTime(2024, 9, 26, 3, 41, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 11,
+                            EquipoID = 4,
+                            EstudianteID = 6,
+                            FechaRegistro = new DateTime(2024, 9, 25, 3, 47, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 47,
                             Actividad = "Actividad 47",
-                            ClaseID = 15,
-                            EquipoID = 14,
-                            EstudianteID = 6,
-                            FechaRegistro = new DateTime(2024, 9, 26, 3, 15, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 8,
+                            EquipoID = 5,
+                            EstudianteID = 9,
+                            FechaRegistro = new DateTime(2024, 9, 25, 16, 53, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 48,
                             Actividad = "Actividad 48",
-                            ClaseID = 15,
-                            EquipoID = 1,
-                            EstudianteID = 7,
-                            FechaRegistro = new DateTime(2024, 9, 26, 5, 16, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 13,
+                            EquipoID = 2,
+                            EstudianteID = 2,
+                            FechaRegistro = new DateTime(2024, 9, 25, 19, 49, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 49,
                             Actividad = "Actividad 49",
-                            ClaseID = 14,
-                            EquipoID = 14,
-                            EstudianteID = 8,
-                            FechaRegistro = new DateTime(2024, 9, 26, 14, 19, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 15,
+                            EquipoID = 11,
+                            EstudianteID = 2,
+                            FechaRegistro = new DateTime(2024, 9, 25, 12, 30, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         },
                         new
                         {
                             UsoEquipoID = 50,
                             Actividad = "Actividad 50",
-                            ClaseID = 10,
-                            EquipoID = 14,
-                            EstudianteID = 9,
-                            FechaRegistro = new DateTime(2024, 9, 26, 4, 52, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 9,
+                            EquipoID = 11,
+                            EstudianteID = 5,
+                            FechaRegistro = new DateTime(2024, 9, 26, 8, 54, 0, 0, DateTimeKind.Unspecified),
+                            Incidentes = "",
                             RegistrarIncidente = false
                         });
                 });

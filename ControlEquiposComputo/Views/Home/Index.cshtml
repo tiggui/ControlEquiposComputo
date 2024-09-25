@@ -12,12 +12,15 @@
     @foreach (var clase in Model)
     {
         <option value="@clase.ClaseID">@clase.NombreClase</option>
+       
     }
+    
 </select>
 
 <!-- Contenedor donde se mostrará la lista de UsoEquipos -->
 <div id="usoEquiposContainer">
     <p>Seleccione una clase para ver los equipos usados.</p>
+
 </div>
 
 @section Scripts {

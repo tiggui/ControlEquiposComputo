@@ -16,6 +16,8 @@ public class HomeController : Controller
         // Obtener la lista de clases para mostrar en el Home
         var clases = _context.Clases.ToList();
         return View(clases);  // Enviar la lista de clases al Index de Home
+
+
     }
 
     // Acción que devuelve el parcial con la lista de UsoEquipos filtrados por ClaseID

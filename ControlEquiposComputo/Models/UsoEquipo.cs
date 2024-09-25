@@ -30,6 +30,10 @@ namespace ControlEquiposComputo.Models
 
         public bool RegistrarIncidente { get; set; } = false;
 
+        public string Incidentes { get; set; } = "";
+
+        public string Imagen { get; set; }
+
 
         // Navigation properties
         public Estudiante Estudiante { get; set; }

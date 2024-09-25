@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ControlEquiposComputo.Data; 
-using ControlEquiposComputo.Models; 
-using System.Threading.Tasks;
+using ControlEquiposComputo.Data;
+using ControlEquiposComputo.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 public class UsoEquipoController : Controller
@@ -14,64 +14,57 @@ public class UsoEquipoController : Controller
         _context = context;
     }
 
-    // GET: UsoEquipos
+    // GET: UsoEquipo
     public async Task<IActionResult> Index()
     {
-        var usoEquipos = await _context.UsoEquipos
+        var usos = await _context.UsoEquipos
             .Include(u => u.Estudiante)
             .Include(u => u.Equipo)
             .Include(u => u.Clase)
             .ToListAsync();
-        return View(usoEquipos);
+        return View(usos);
     }
 
-    // GET: UsoEquipos/Create
+    // GET: UsoEquipo/Create
     public IActionResult Create()
     {
-        UsoEquipo nuevoUsoEquipo = new UsoEquipo
-        {
-            FechaRegistro = DateTime.Now // Valor por defecto en el controlador
-        };
-
         ViewData["EstudianteID"] = new SelectList(_context.Estudiantes, "EstudianteID", "Nombre");
         ViewData["EquipoID"] = new SelectList(_context.Equipos, "EquipoID", "NumeroEquipo");
         ViewData["ClaseID"] = new SelectList(_context.Clases, "ClaseID", "NombreClase");
-        return View(nuevoUsoEquipo);
+        return View();
     }
 
+    // POST: UsoEquipo/Create
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create(UsoEquipo usoEquipo, string DescripcionIncidente)
+    public async Task<IActionResult> Create(UsoEquipo usoEquipo, IFormFile imagenArchivo)
     {
         if (ModelState.IsValid)
         {
-            _context.Add(usoEquipo);
-            await _context.SaveChangesAsync();
-
-            // Si el usuario desea registrar un incidente
-            if (usoEquipo.RegistrarIncidente && !string.IsNullOrEmpty(DescripcionIncidente))
+            // Manejo de la carga de la imagen
+            if (imagenArchivo != null && imagenArchivo.Length > 0)
             {
-                Incidente incidente = new Incidente
+                var uploadDir = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
+                var fileName = Path.GetFileName(imagenArchivo.FileName);
+                var filePath = Path.Combine(uploadDir, fileName);
+                using (var stream = new FileStream(filePath, FileMode.Create))
                 {
-                    UsoEquipoID = usoEquipo.UsoEquipoID,
-                    FechaIncidente = DateTime.Now,
-                    Descripcion = DescripcionIncidente,
-                    Estado = "Pendiente"
-                };
-                _context.Add(incidente);
-                await _context.SaveChangesAsync();
+                    await imagenArchivo.CopyToAsync(stream);
+                }
+                usoEquipo.Imagen = "/images/" + fileName; // Ruta de la imagen
             }
 
+            _context.Add(usoEquipo);
+            await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-        ViewData["ClaseID"] = new SelectList(_context.Clases, "ClaseID", "NombreClase", usoEquipo.ClaseID);
         ViewData["EstudianteID"] = new SelectList(_context.Estudiantes, "EstudianteID", "Nombre", usoEquipo.EstudianteID);
         ViewData["EquipoID"] = new SelectList(_context.Equipos, "EquipoID", "NumeroEquipo", usoEquipo.EquipoID);
+        ViewData["ClaseID"] = new SelectList(_context.Clases, "ClaseID", "NombreClase", usoEquipo.ClaseID);
         return View(usoEquipo);
     }
 
-
-    // GET: UsoEquipos/Edit/5
+    // GET: UsoEquipo/Edit/5
     public async Task<IActionResult> Edit(int id)
     {
         var usoEquipo = await _context.UsoEquipos.FindAsync(id);
@@ -85,10 +78,10 @@ public class UsoEquipoController : Controller
         return View(usoEquipo);
     }
 
-    // POST: UsoEquipos/Edit/5
+    // POST: UsoEquipo/Edit/5
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, UsoEquipo usoEquipo)
+    public async Task<IActionResult> Edit(int id, UsoEquipo usoEquipo, IFormFile imagenArchivo)
     {
         if (id != usoEquipo.UsoEquipoID)
         {
@@ -99,6 +92,19 @@ public class UsoEquipoController : Controller
         {
             try
             {
+                // Manejo de la carga de la imagen
+                if (imagenArchivo != null && imagenArchivo.Length > 0)
+                {
+                    var uploadDir = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
+                    var fileName = Path.GetFileName(imagenArchivo.FileName);
+                    var filePath = Path.Combine(uploadDir, fileName);
+                    using (var stream = new FileStream(filePath, FileMode.Create))
+                    {
+                        await imagenArchivo.CopyToAsync(stream);
+                    }
+                    usoEquipo.Imagen = "/images/" + fileName; // Actualiza la ruta de la imagen
+                }
+
                 _context.Update(usoEquipo);
                 await _context.SaveChangesAsync();
             }
@@ -121,7 +127,7 @@ public class UsoEquipoController : Controller
         return View(usoEquipo);
     }
 
-    // GET: UsoEquipos/Delete/5
+    // GET: UsoEquipo/Delete/5
     public async Task<IActionResult> Delete(int id)
     {
         var usoEquipo = await _context.UsoEquipos
@@ -136,7 +142,7 @@ public class UsoEquipoController : Controller
         return View(usoEquipo);
     }
 
-    // POST: UsoEquipos/Delete/5
+    // POST: UsoEquipo/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> DeleteConfirmed(int id)
@@ -149,6 +155,6 @@ public class UsoEquipoController : Controller
 
     private bool UsoEquipoExists(int id)
     {
-        return _context.UsoEquipos.Any(u => u.UsoEquipoID == id);
+        return _context.UsoEquipos.Any(e => e.UsoEquipoID == id);
     }
 }

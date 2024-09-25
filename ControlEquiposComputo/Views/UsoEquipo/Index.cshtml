@@ -1,42 +1,62 @@
 ﻿@model IEnumerable<ControlEquiposComputo.Models.UsoEquipo>
 
 @{
-    ViewData["Title"] = "Uso de Equipos";
+    ViewData["Title"] = "Lista de Usos de Equipo";
 }
 
-<h1>Uso de Equipos</h1>
+<h1>@ViewData["Title"]</h1>
 
-<p>
+<div>
     <a asp-action="Create" class="btn btn-primary">Crear Nuevo Uso de Equipo</a>
-</p>
+</div>
 
 <table class="table">
     <thead>
         <tr>
             <th>Estudiante</th>
             <th>Equipo</th>
+            
             <th>Clase</th>
-            <th>Fecha de Asignación</th>
             <th>Actividad</th>
-
-            <th>Acciones</th>
+            
+            <th>Incidentes</th>
+            <th>Imagen</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @foreach (var uso in Model)
         {
-            <tr>
-                <td>@item.Estudiante.Nombre</td>
-                <td>@item.Equipo.NumeroEquipo</td>
-                <td>@item.Clase.NombreClase</td>
-                <td>@item.Clase.Inicio.ToShortDateString()</td>
-                <td>@item.Actividad</td>
-                
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.UsoEquipoID" class="btn btn-warning">Editar</a>
-                    <a asp-action="Delete" asp-route-id="@item.UsoEquipoID" class="btn btn-danger">Eliminar</a>
-                </td>
-            </tr>
+                <tr>
+                    <td>@uso.Estudiante.Nombre</td>
+                    <td>@uso.Equipo.NumeroEquipo</td>
+                    <td>@uso.Clase.NombreClase</td>
+                    <td>@uso.Actividad</td>
+                    <td>
+                    @if (!string.IsNullOrEmpty(uso.Incidentes))
+                    {
+                        @uso.Incidentes
+                    }
+                    else
+                    {
+                                <span></span>
+                    }
+                    </td>
+                    <td>
+    @if (!string.IsNullOrEmpty(uso.Imagen))
+    {
+        <img src="@uso.Imagen" alt="Imagen del equipo" style="max-width: 100px;" />
+    }
+    else
+    {
+        <span>No hay imagen disponible</span>
+    }
+</td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@uso.UsoEquipoID" class="btn btn-warning">Editar</a> |
+                        <a asp-action="Delete" asp-route-id="@uso.UsoEquipoID" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
         }
     </tbody>
 </table>

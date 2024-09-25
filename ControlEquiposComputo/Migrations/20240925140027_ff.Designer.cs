@@ -4,6 +4,7 @@ using ControlEquiposComputo.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ControlEquiposComputo.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240925140027_ff")]
+    partial class ff
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -800,9 +803,6 @@ namespace ControlEquiposComputo.Migrations
                     b.Property<DateTime>("FechaRegistro")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Imagen")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Incidentes")
                         .HasColumnType("nvarchar(max)");
 
@@ -824,10 +824,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 1,
                             Actividad = "Actividad 1",
-                            ClaseID = 3,
-                            EquipoID = 2,
-                            EstudianteID = 4,
-                            FechaRegistro = new DateTime(2024, 9, 25, 3, 52, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 4,
+                            EquipoID = 16,
+                            EstudianteID = 10,
+                            FechaRegistro = new DateTime(2024, 9, 25, 20, 40, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -835,10 +835,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 2,
                             Actividad = "Actividad 2",
-                            ClaseID = 9,
-                            EquipoID = 18,
-                            EstudianteID = 4,
-                            FechaRegistro = new DateTime(2024, 9, 25, 0, 43, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 8,
+                            EquipoID = 7,
+                            EstudianteID = 9,
+                            FechaRegistro = new DateTime(2024, 9, 25, 2, 14, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -846,10 +846,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 3,
                             Actividad = "Actividad 3",
-                            ClaseID = 15,
-                            EquipoID = 19,
-                            EstudianteID = 5,
-                            FechaRegistro = new DateTime(2024, 9, 25, 1, 46, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 14,
+                            EquipoID = 6,
+                            EstudianteID = 8,
+                            FechaRegistro = new DateTime(2024, 9, 26, 21, 1, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -857,10 +857,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 4,
                             Actividad = "Actividad 4",
-                            ClaseID = 4,
-                            EquipoID = 6,
-                            EstudianteID = 4,
-                            FechaRegistro = new DateTime(2024, 9, 25, 14, 26, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 13,
+                            EquipoID = 18,
+                            EstudianteID = 1,
+                            FechaRegistro = new DateTime(2024, 9, 26, 11, 11, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -868,10 +868,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 5,
                             Actividad = "Actividad 5",
-                            ClaseID = 15,
-                            EquipoID = 2,
+                            ClaseID = 12,
+                            EquipoID = 6,
                             EstudianteID = 8,
-                            FechaRegistro = new DateTime(2024, 9, 26, 18, 29, 0, 0, DateTimeKind.Unspecified),
+                            FechaRegistro = new DateTime(2024, 9, 25, 22, 1, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -879,10 +879,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 6,
                             Actividad = "Actividad 6",
-                            ClaseID = 7,
-                            EquipoID = 8,
-                            EstudianteID = 1,
-                            FechaRegistro = new DateTime(2024, 9, 26, 8, 21, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 8,
+                            EquipoID = 17,
+                            EstudianteID = 8,
+                            FechaRegistro = new DateTime(2024, 9, 26, 19, 24, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -890,10 +890,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 7,
                             Actividad = "Actividad 7",
-                            ClaseID = 2,
-                            EquipoID = 6,
-                            EstudianteID = 2,
-                            FechaRegistro = new DateTime(2024, 9, 25, 19, 17, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 11,
+                            EquipoID = 13,
+                            EstudianteID = 5,
+                            FechaRegistro = new DateTime(2024, 9, 25, 17, 28, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -901,10 +901,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 8,
                             Actividad = "Actividad 8",
-                            ClaseID = 5,
-                            EquipoID = 7,
-                            EstudianteID = 1,
-                            FechaRegistro = new DateTime(2024, 9, 26, 8, 57, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 3,
+                            EquipoID = 15,
+                            EstudianteID = 4,
+                            FechaRegistro = new DateTime(2024, 9, 26, 10, 11, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -912,10 +912,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 9,
                             Actividad = "Actividad 9",
-                            ClaseID = 11,
-                            EquipoID = 15,
-                            EstudianteID = 4,
-                            FechaRegistro = new DateTime(2024, 9, 25, 19, 51, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 13,
+                            EquipoID = 10,
+                            EstudianteID = 9,
+                            FechaRegistro = new DateTime(2024, 9, 25, 10, 29, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -924,9 +924,9 @@ namespace ControlEquiposComputo.Migrations
                             UsoEquipoID = 10,
                             Actividad = "Actividad 10",
                             ClaseID = 4,
-                            EquipoID = 19,
-                            EstudianteID = 7,
-                            FechaRegistro = new DateTime(2024, 9, 25, 19, 11, 0, 0, DateTimeKind.Unspecified),
+                            EquipoID = 10,
+                            EstudianteID = 8,
+                            FechaRegistro = new DateTime(2024, 9, 26, 3, 6, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -934,10 +934,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 11,
                             Actividad = "Actividad 11",
-                            ClaseID = 12,
-                            EquipoID = 11,
-                            EstudianteID = 9,
-                            FechaRegistro = new DateTime(2024, 9, 25, 23, 6, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 6,
+                            EquipoID = 6,
+                            EstudianteID = 2,
+                            FechaRegistro = new DateTime(2024, 9, 25, 15, 47, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -945,10 +945,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 12,
                             Actividad = "Actividad 12",
-                            ClaseID = 4,
-                            EquipoID = 7,
-                            EstudianteID = 1,
-                            FechaRegistro = new DateTime(2024, 9, 25, 21, 49, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 10,
+                            EquipoID = 8,
+                            EstudianteID = 9,
+                            FechaRegistro = new DateTime(2024, 9, 26, 22, 21, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -956,10 +956,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 13,
                             Actividad = "Actividad 13",
-                            ClaseID = 8,
-                            EquipoID = 14,
-                            EstudianteID = 6,
-                            FechaRegistro = new DateTime(2024, 9, 26, 5, 21, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 14,
+                            EquipoID = 19,
+                            EstudianteID = 10,
+                            FechaRegistro = new DateTime(2024, 9, 26, 6, 11, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -967,10 +967,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 14,
                             Actividad = "Actividad 14",
-                            ClaseID = 12,
-                            EquipoID = 2,
-                            EstudianteID = 6,
-                            FechaRegistro = new DateTime(2024, 9, 26, 14, 0, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 15,
+                            EquipoID = 16,
+                            EstudianteID = 4,
+                            FechaRegistro = new DateTime(2024, 9, 25, 21, 46, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -979,9 +979,9 @@ namespace ControlEquiposComputo.Migrations
                             UsoEquipoID = 15,
                             Actividad = "Actividad 15",
                             ClaseID = 2,
-                            EquipoID = 13,
-                            EstudianteID = 2,
-                            FechaRegistro = new DateTime(2024, 9, 26, 19, 19, 0, 0, DateTimeKind.Unspecified),
+                            EquipoID = 1,
+                            EstudianteID = 1,
+                            FechaRegistro = new DateTime(2024, 9, 26, 0, 27, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -989,10 +989,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 16,
                             Actividad = "Actividad 16",
-                            ClaseID = 7,
-                            EquipoID = 3,
-                            EstudianteID = 8,
-                            FechaRegistro = new DateTime(2024, 9, 25, 16, 35, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 13,
+                            EquipoID = 14,
+                            EstudianteID = 3,
+                            FechaRegistro = new DateTime(2024, 9, 26, 19, 27, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1000,10 +1000,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 17,
                             Actividad = "Actividad 17",
-                            ClaseID = 6,
-                            EquipoID = 9,
-                            EstudianteID = 4,
-                            FechaRegistro = new DateTime(2024, 9, 25, 23, 26, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 15,
+                            EquipoID = 8,
+                            EstudianteID = 6,
+                            FechaRegistro = new DateTime(2024, 9, 26, 14, 57, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1011,10 +1011,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 18,
                             Actividad = "Actividad 18",
-                            ClaseID = 6,
-                            EquipoID = 5,
-                            EstudianteID = 1,
-                            FechaRegistro = new DateTime(2024, 9, 25, 13, 18, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 3,
+                            EquipoID = 8,
+                            EstudianteID = 8,
+                            FechaRegistro = new DateTime(2024, 9, 26, 18, 28, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1023,9 +1023,9 @@ namespace ControlEquiposComputo.Migrations
                             UsoEquipoID = 19,
                             Actividad = "Actividad 19",
                             ClaseID = 1,
-                            EquipoID = 18,
-                            EstudianteID = 9,
-                            FechaRegistro = new DateTime(2024, 9, 26, 18, 51, 0, 0, DateTimeKind.Unspecified),
+                            EquipoID = 6,
+                            EstudianteID = 7,
+                            FechaRegistro = new DateTime(2024, 9, 26, 21, 6, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1033,10 +1033,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 20,
                             Actividad = "Actividad 20",
-                            ClaseID = 5,
-                            EquipoID = 19,
-                            EstudianteID = 4,
-                            FechaRegistro = new DateTime(2024, 9, 26, 19, 14, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 4,
+                            EquipoID = 18,
+                            EstudianteID = 6,
+                            FechaRegistro = new DateTime(2024, 9, 26, 0, 11, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1044,10 +1044,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 21,
                             Actividad = "Actividad 21",
-                            ClaseID = 15,
-                            EquipoID = 3,
-                            EstudianteID = 5,
-                            FechaRegistro = new DateTime(2024, 9, 26, 21, 44, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 4,
+                            EquipoID = 16,
+                            EstudianteID = 2,
+                            FechaRegistro = new DateTime(2024, 9, 25, 13, 24, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1055,10 +1055,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 22,
                             Actividad = "Actividad 22",
-                            ClaseID = 4,
-                            EquipoID = 3,
-                            EstudianteID = 4,
-                            FechaRegistro = new DateTime(2024, 9, 25, 5, 10, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 8,
+                            EquipoID = 17,
+                            EstudianteID = 7,
+                            FechaRegistro = new DateTime(2024, 9, 26, 0, 53, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1066,10 +1066,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 23,
                             Actividad = "Actividad 23",
-                            ClaseID = 11,
-                            EquipoID = 1,
-                            EstudianteID = 8,
-                            FechaRegistro = new DateTime(2024, 9, 26, 11, 6, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 7,
+                            EquipoID = 10,
+                            EstudianteID = 1,
+                            FechaRegistro = new DateTime(2024, 9, 26, 10, 9, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1077,10 +1077,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 24,
                             Actividad = "Actividad 24",
-                            ClaseID = 1,
+                            ClaseID = 9,
                             EquipoID = 6,
-                            EstudianteID = 8,
-                            FechaRegistro = new DateTime(2024, 9, 26, 10, 3, 0, 0, DateTimeKind.Unspecified),
+                            EstudianteID = 7,
+                            FechaRegistro = new DateTime(2024, 9, 25, 19, 27, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1089,9 +1089,9 @@ namespace ControlEquiposComputo.Migrations
                             UsoEquipoID = 25,
                             Actividad = "Actividad 25",
                             ClaseID = 8,
-                            EquipoID = 6,
-                            EstudianteID = 3,
-                            FechaRegistro = new DateTime(2024, 9, 25, 12, 38, 0, 0, DateTimeKind.Unspecified),
+                            EquipoID = 1,
+                            EstudianteID = 6,
+                            FechaRegistro = new DateTime(2024, 9, 25, 3, 26, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1099,10 +1099,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 26,
                             Actividad = "Actividad 26",
-                            ClaseID = 8,
-                            EquipoID = 16,
-                            EstudianteID = 2,
-                            FechaRegistro = new DateTime(2024, 9, 26, 18, 11, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 15,
+                            EquipoID = 7,
+                            EstudianteID = 1,
+                            FechaRegistro = new DateTime(2024, 9, 26, 20, 16, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1110,10 +1110,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 27,
                             Actividad = "Actividad 27",
-                            ClaseID = 11,
-                            EquipoID = 1,
-                            EstudianteID = 2,
-                            FechaRegistro = new DateTime(2024, 9, 26, 18, 40, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 2,
+                            EquipoID = 11,
+                            EstudianteID = 7,
+                            FechaRegistro = new DateTime(2024, 9, 26, 4, 26, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1121,10 +1121,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 28,
                             Actividad = "Actividad 28",
-                            ClaseID = 9,
-                            EquipoID = 11,
-                            EstudianteID = 4,
-                            FechaRegistro = new DateTime(2024, 9, 26, 18, 16, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 8,
+                            EquipoID = 19,
+                            EstudianteID = 3,
+                            FechaRegistro = new DateTime(2024, 9, 25, 0, 31, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1132,10 +1132,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 29,
                             Actividad = "Actividad 29",
-                            ClaseID = 7,
-                            EquipoID = 17,
-                            EstudianteID = 7,
-                            FechaRegistro = new DateTime(2024, 9, 26, 20, 47, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 2,
+                            EquipoID = 10,
+                            EstudianteID = 5,
+                            FechaRegistro = new DateTime(2024, 9, 26, 3, 22, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1143,10 +1143,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 30,
                             Actividad = "Actividad 30",
-                            ClaseID = 4,
-                            EquipoID = 4,
-                            EstudianteID = 6,
-                            FechaRegistro = new DateTime(2024, 9, 25, 15, 42, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 5,
+                            EquipoID = 2,
+                            EstudianteID = 10,
+                            FechaRegistro = new DateTime(2024, 9, 25, 5, 31, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1154,10 +1154,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 31,
                             Actividad = "Actividad 31",
-                            ClaseID = 14,
-                            EquipoID = 14,
-                            EstudianteID = 9,
-                            FechaRegistro = new DateTime(2024, 9, 25, 5, 13, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 1,
+                            EquipoID = 20,
+                            EstudianteID = 10,
+                            FechaRegistro = new DateTime(2024, 9, 26, 23, 7, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1165,10 +1165,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 32,
                             Actividad = "Actividad 32",
-                            ClaseID = 9,
+                            ClaseID = 10,
                             EquipoID = 1,
-                            EstudianteID = 10,
-                            FechaRegistro = new DateTime(2024, 9, 26, 9, 22, 0, 0, DateTimeKind.Unspecified),
+                            EstudianteID = 7,
+                            FechaRegistro = new DateTime(2024, 9, 26, 11, 42, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1176,10 +1176,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 33,
                             Actividad = "Actividad 33",
-                            ClaseID = 15,
-                            EquipoID = 5,
+                            ClaseID = 5,
+                            EquipoID = 20,
                             EstudianteID = 8,
-                            FechaRegistro = new DateTime(2024, 9, 25, 18, 19, 0, 0, DateTimeKind.Unspecified),
+                            FechaRegistro = new DateTime(2024, 9, 26, 17, 54, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1187,10 +1187,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 34,
                             Actividad = "Actividad 34",
-                            ClaseID = 11,
-                            EquipoID = 9,
-                            EstudianteID = 4,
-                            FechaRegistro = new DateTime(2024, 9, 25, 15, 39, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 7,
+                            EquipoID = 19,
+                            EstudianteID = 7,
+                            FechaRegistro = new DateTime(2024, 9, 25, 16, 38, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1198,10 +1198,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 35,
                             Actividad = "Actividad 35",
-                            ClaseID = 4,
-                            EquipoID = 3,
-                            EstudianteID = 7,
-                            FechaRegistro = new DateTime(2024, 9, 26, 13, 52, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 8,
+                            EquipoID = 2,
+                            EstudianteID = 3,
+                            FechaRegistro = new DateTime(2024, 9, 25, 5, 45, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1209,10 +1209,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 36,
                             Actividad = "Actividad 36",
-                            ClaseID = 15,
+                            ClaseID = 7,
                             EquipoID = 5,
-                            EstudianteID = 2,
-                            FechaRegistro = new DateTime(2024, 9, 25, 16, 58, 0, 0, DateTimeKind.Unspecified),
+                            EstudianteID = 3,
+                            FechaRegistro = new DateTime(2024, 9, 26, 19, 0, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1220,10 +1220,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 37,
                             Actividad = "Actividad 37",
-                            ClaseID = 7,
+                            ClaseID = 5,
                             EquipoID = 1,
-                            EstudianteID = 1,
-                            FechaRegistro = new DateTime(2024, 9, 26, 4, 10, 0, 0, DateTimeKind.Unspecified),
+                            EstudianteID = 2,
+                            FechaRegistro = new DateTime(2024, 9, 26, 18, 42, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1231,10 +1231,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 38,
                             Actividad = "Actividad 38",
-                            ClaseID = 14,
-                            EquipoID = 5,
-                            EstudianteID = 2,
-                            FechaRegistro = new DateTime(2024, 9, 26, 5, 10, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 6,
+                            EquipoID = 2,
+                            EstudianteID = 7,
+                            FechaRegistro = new DateTime(2024, 9, 26, 20, 51, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1242,10 +1242,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 39,
                             Actividad = "Actividad 39",
-                            ClaseID = 13,
+                            ClaseID = 7,
                             EquipoID = 9,
-                            EstudianteID = 2,
-                            FechaRegistro = new DateTime(2024, 9, 25, 13, 38, 0, 0, DateTimeKind.Unspecified),
+                            EstudianteID = 1,
+                            FechaRegistro = new DateTime(2024, 9, 26, 10, 50, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1253,10 +1253,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 40,
                             Actividad = "Actividad 40",
-                            ClaseID = 10,
-                            EquipoID = 8,
-                            EstudianteID = 4,
-                            FechaRegistro = new DateTime(2024, 9, 25, 18, 29, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 14,
+                            EquipoID = 16,
+                            EstudianteID = 9,
+                            FechaRegistro = new DateTime(2024, 9, 26, 6, 12, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1264,10 +1264,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 41,
                             Actividad = "Actividad 41",
-                            ClaseID = 13,
-                            EquipoID = 16,
-                            EstudianteID = 4,
-                            FechaRegistro = new DateTime(2024, 9, 26, 23, 26, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 6,
+                            EquipoID = 12,
+                            EstudianteID = 8,
+                            FechaRegistro = new DateTime(2024, 9, 26, 6, 52, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1275,10 +1275,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 42,
                             Actividad = "Actividad 42",
-                            ClaseID = 15,
-                            EquipoID = 19,
-                            EstudianteID = 2,
-                            FechaRegistro = new DateTime(2024, 9, 25, 1, 12, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 12,
+                            EquipoID = 16,
+                            EstudianteID = 6,
+                            FechaRegistro = new DateTime(2024, 9, 26, 4, 15, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1286,10 +1286,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 43,
                             Actividad = "Actividad 43",
-                            ClaseID = 10,
-                            EquipoID = 19,
-                            EstudianteID = 1,
-                            FechaRegistro = new DateTime(2024, 9, 25, 14, 10, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 8,
+                            EquipoID = 7,
+                            EstudianteID = 5,
+                            FechaRegistro = new DateTime(2024, 9, 26, 4, 20, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1297,10 +1297,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 44,
                             Actividad = "Actividad 44",
-                            ClaseID = 12,
-                            EquipoID = 19,
-                            EstudianteID = 2,
-                            FechaRegistro = new DateTime(2024, 9, 25, 16, 6, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 3,
+                            EquipoID = 18,
+                            EstudianteID = 7,
+                            FechaRegistro = new DateTime(2024, 9, 25, 14, 31, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1308,10 +1308,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 45,
                             Actividad = "Actividad 45",
-                            ClaseID = 9,
-                            EquipoID = 2,
-                            EstudianteID = 7,
-                            FechaRegistro = new DateTime(2024, 9, 26, 11, 5, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 11,
+                            EquipoID = 17,
+                            EstudianteID = 5,
+                            FechaRegistro = new DateTime(2024, 9, 26, 16, 6, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1319,10 +1319,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 46,
                             Actividad = "Actividad 46",
-                            ClaseID = 11,
-                            EquipoID = 4,
-                            EstudianteID = 6,
-                            FechaRegistro = new DateTime(2024, 9, 25, 3, 47, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 6,
+                            EquipoID = 2,
+                            EstudianteID = 1,
+                            FechaRegistro = new DateTime(2024, 9, 26, 12, 43, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1330,10 +1330,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 47,
                             Actividad = "Actividad 47",
-                            ClaseID = 8,
-                            EquipoID = 5,
-                            EstudianteID = 9,
-                            FechaRegistro = new DateTime(2024, 9, 25, 16, 53, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 1,
+                            EquipoID = 1,
+                            EstudianteID = 2,
+                            FechaRegistro = new DateTime(2024, 9, 25, 10, 35, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1341,10 +1341,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 48,
                             Actividad = "Actividad 48",
-                            ClaseID = 13,
-                            EquipoID = 2,
-                            EstudianteID = 2,
-                            FechaRegistro = new DateTime(2024, 9, 25, 19, 49, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 3,
+                            EquipoID = 15,
+                            EstudianteID = 4,
+                            FechaRegistro = new DateTime(2024, 9, 26, 9, 13, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1352,10 +1352,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 49,
                             Actividad = "Actividad 49",
-                            ClaseID = 15,
-                            EquipoID = 11,
-                            EstudianteID = 2,
-                            FechaRegistro = new DateTime(2024, 9, 25, 12, 30, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 3,
+                            EquipoID = 16,
+                            EstudianteID = 4,
+                            FechaRegistro = new DateTime(2024, 9, 26, 16, 35, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         },
@@ -1363,10 +1363,10 @@ namespace ControlEquiposComputo.Migrations
                         {
                             UsoEquipoID = 50,
                             Actividad = "Actividad 50",
-                            ClaseID = 9,
-                            EquipoID = 11,
-                            EstudianteID = 5,
-                            FechaRegistro = new DateTime(2024, 9, 26, 8, 54, 0, 0, DateTimeKind.Unspecified),
+                            ClaseID = 6,
+                            EquipoID = 17,
+                            EstudianteID = 6,
+                            FechaRegistro = new DateTime(2024, 9, 25, 8, 41, 0, 0, DateTimeKind.Unspecified),
                             Incidentes = "",
                             RegistrarIncidente = false
                         });
