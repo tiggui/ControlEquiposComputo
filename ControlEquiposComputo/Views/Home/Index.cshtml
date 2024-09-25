@@ -1,146 +1,46 @@
-﻿@* @{
-    ViewData["Title"] = "Home Page";
-}
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
- *@
+﻿@model IEnumerable<ControlEquiposComputo.Models.Clase>
 
 @{
-    ViewBag.Title = "Panel de Control";
+    ViewData["Title"] = "Inicio";
 }
 
-<h2>Panel de Control - Laboratorios y Equipos</h2>
+<h2>Lista de Clases</h2>
 
-<div>
-    <h3>Laboratorios</h3>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Ubicación</th>
-                <th>Capacidad</th>
-                <th>Responsable</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var lab in ViewBag.Laboratorios)
-            {
-                <tr>
-                    <td>@lab.NombreLaboratorio</td>
-                    <td>@lab.Ubicacion</td>
-                    <td>@lab.Capacidad</td>
-                    <td>@lab.Responsable</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+<!-- Dropdown para seleccionar una clase -->
+<select id="claseSelect" class="form-control">
+    <option value="">Seleccione una clase...</option>
+    @foreach (var clase in Model)
+    {
+        <option value="@clase.ClaseID">@clase.NombreClase</option>
+    }
+</select>
+
+<!-- Contenedor donde se mostrará la lista de UsoEquipos -->
+<div id="usoEquiposContainer">
+    <p>Seleccione una clase para ver los equipos usados.</p>
 </div>
 
-<div>
-    <h3>Equipos</h3>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Marca</th>
-                <th>Modelo</th>
-                <th>Estado</th>
-                <th>Laboratorio</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var equipo in ViewBag.Equipos)
-            {
-                <tr>
-                    <td>@equipo.EquipoID</td>
-                    <td>@equipo.Marca</td>
-                    <td>@equipo.Modelo</td>
-                    <td>@equipo.Estado</td>
-                    <td>@equipo.Laboratorio.NombreLaboratorio</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
-
-<div>
-    <h3>Mantenimientos Pendientes</h3>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Equipo</th>
-                <th>Fecha</th>
-                <th>Técnico Responsable</th>
-                <th>Descripción</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var mant in ViewBag.MantenimientosPendientes)
-            {
-                <tr>
-                    <td>@mant.Equipo.EquipoID</td>
-                    <td>@mant.FechaMantenimiento.ToString("dd/MM/yyyy")</td>
-                    <td>@mant.TecnicoID</td>
-                    <td>@mant.Descripcion</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
-
-<div>
-    <h3>Reservas para Hoy</h3>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Laboratorio</th>
-                <th>Usuario</th>
-                <th>Fecha</th>
-                <th>Hora Inicio</th>
-                <th>Hora Fin</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var reserva in ViewBag.ReservasHoy)
-            {
-                <tr>
-                    <td>@reserva.Laboratorio.NombreLaboratorio</td>
-                    <td>@reserva.UsuarioReserva</td>
-                    <td>@reserva.FechaReserva.ToString("dd/MM/yyyy")</td>
-                    <td>@reserva.HoraInicio</td>
-                    <td>@reserva.HoraFin</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
-
-<div>
-    <h3>Uso de Laboratorios Hoy</h3>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Laboratorio</th>
-                <th>Usuario</th>
-                <th>Actividad</th>
-                <th>Hora Inicio</th>
-                <th>Hora Fin</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var uso in ViewBag.UsoHoy)
-            {
-                <tr>
-                    <td>@uso.Laboratorio.NombreLaboratorio</td>
-                    <td>@uso.Usuario.NombreCompleto</td>
-                    <td>@uso.Actividad</td>
-                    <td>@uso.HoraInicio</td>
-                    <td>@uso.HoraFin</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-</div>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            // Cuando se selecciona una clase del dropdown
+            $('#claseSelect').change(function () {
+                var claseId = $(this).val();
+                if (claseId) {
+                    // Hacer una llamada AJAX al controlador Home para obtener los equipos de esa clase
+                    $.ajax({
+                        url: '@Url.Action("GetUsoEquiposPorClase", "Home")',
+                        data: { claseId: claseId },
+                        success: function (result) {
+                            // Reemplazar el contenido del contenedor con la vista parcial
+                            $('#usoEquiposContainer').html(result);
+                        }
+                    });
+                } else {
+                    // Limpiar el contenedor si no se selecciona ninguna clase
+                    $('#usoEquiposContainer').html('<p>Seleccione una clase para ver los equipos usados.</p>');
+                }
+            });
+        });
+    </script>
+}

@@ -1,37 +1,38 @@
 ﻿@model IEnumerable<ControlEquiposComputo.Models.Mantenimiento>
 
 @{
-    ViewData["Title"] = "Lista de Mantenimientos";
+    ViewData["Title"] = "Mantenimientos";
 }
 
-<h2>Mantenimientos</h2>
+<h1>Mantenimientos</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i> Registrar Nuevo Mantenimiento</a>
+    <a asp-action="Create" class="btn btn-primary">Crear Nuevo Mantenimiento</a>
 </p>
 
 <table class="table">
     <thead>
         <tr>
-            <th>Equipo</th>
             <th>Técnico</th>
+            <th>Equipo</th>
             <th>Fecha de Mantenimiento</th>
             <th>Descripción</th>
-            <th></th>
+            <th>Estado</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.Equipo.Marca</td>
                 <td>@item.Tecnico.Nombre</td>
+                <td>@item.Equipo.NumeroEquipo</td>
                 <td>@item.FechaMantenimiento.ToShortDateString()</td>
                 <td>@item.Descripcion</td>
+                <td>@item.Estado</td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.MantenimientoID" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a> |
-                    <a asp-action="Details" asp-route-id="@item.MantenimientoID" class="btn btn-sm btn-secondary"><i class="fas fa-info-circle"></i></a> |
-                    <a asp-action="Delete" asp-route-id="@item.MantenimientoID"  class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    <a asp-action="Edit" asp-route-id="@item.MantenimientoID" class="btn btn-warning">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@item.MantenimientoID" class="btn btn-danger">Eliminar</a>
                 </td>
             </tr>
         }

@@ -8,32 +8,23 @@ namespace ControlEquiposComputo.Models
         [Key]
         public int IncidenteID { get; set; }
 
-        [ForeignKey("Laboratorio")]
-        public int LaboratorioID { get; set; }
+        [Required(ErrorMessage = "El uso de equipo es requerido")]
+        [ForeignKey("UsoEquipo")]
+        public int UsoEquipoID { get; set; }
 
-        [ForeignKey("Equipo")]
-        public int? EquipoID { get; set; }  // Incidente puede ser relacionado con equipo o con el laboratorio en general
-
-        [ForeignKey("Usuario")]
-        public int UsuarioID { get; set; }
-
-        [ForeignKey("Tecnico")]
-        public int TecnicoID { get; set; }
-
-        [Required]
+        [Required(ErrorMessage = "La fecha del incidente es requerida")]
         public DateTime FechaIncidente { get; set; }
 
-        [Required]
-        [StringLength(200)]
+        [Required(ErrorMessage = "La descripción es requerida")]
+        [StringLength(45, ErrorMessage = "La descripción no puede exceder 45 caracteres")]
         public string Descripcion { get; set; }
 
-        public string Estado { get; set; }  // Pendiente, En proceso, Resuelto
+        [Required(ErrorMessage = "El estado es requerido")]
+        [StringLength(45, ErrorMessage = "El estado no puede exceder 45 caracteres")]
+        public string Estado { get; set; }
 
-        
+        // Navigation property
+        public UsoEquipo UsoEquipo { get; set; }
 
-        public virtual Laboratorio Laboratorio { get; set; }
-        public virtual Equipo Equipo { get; set; }
-        public virtual Tecnico Tecnico { get; set; }
-        public virtual Usuario  Usuario { get; set; }
     }
 }

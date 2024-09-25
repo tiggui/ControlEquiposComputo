@@ -1,0 +1,30 @@
+﻿@model IEnumerable<ControlEquiposComputo.Models.UsoEquipo>
+
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Estudiante</th>
+                <th>Equipo</th>
+                <th>Actividad</th>
+                <th>Fecha de Asignación</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var uso in Model)
+            {
+                <tr>
+                    <td>@uso.Estudiante.Nombre</td>
+                    <td>@uso.Equipo.NumeroEquipo</td>
+                    <td>@uso.Actividad</td>
+                    <td>@uso.FechaAsignacion.ToShortDateString()</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No hay uso de equipos registrados para esta clase.</p>
+}

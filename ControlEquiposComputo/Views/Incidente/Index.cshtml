@@ -1,43 +1,36 @@
 ﻿@model IEnumerable<ControlEquiposComputo.Models.Incidente>
 
 @{
-    ViewData["Title"] = "Lista de Incidentes";
+    ViewData["Title"] = "Incidentes";
 }
 
-<h2>Incidentes</h2>
+<h1>Incidentes</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i> Registrar Nuevo Incidente</a>
+    <a asp-action="Create" class="btn btn-primary">Crear Nuevo Incidente</a>
 </p>
 
 <table class="table">
     <thead>
         <tr>
-            <th>Laboratorio</th>
-            <th>Equipo</th>
-            <th>Usuario</th>
-            <th>Técnico</th>
-            <th>Fecha de Incidente</th>
+            <th>Uso de Equipo</th>
+            <th>Fecha del Incidente</th>
             <th>Descripción</th>
             <th>Estado</th>
-            <th></th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.Laboratorio.NombreLaboratorio</td>
-                <td>@(item.Equipo != null ? item.Equipo.Marca : "N/A")</td>
-                <td>@item.Usuario.Nombre</td>
-                <td>@item.Tecnico.Nombre</td>
+                <td>@item.UsoEquipo.Actividad</td>
                 <td>@item.FechaIncidente.ToShortDateString()</td>
                 <td>@item.Descripcion</td>
                 <td>@item.Estado</td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.IncidenteID" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a> |
-                    <a asp-action="Details" asp-route-id="@item.IncidenteID" class="btn btn-sm btn-secondary"><i class="fas fa-info-circle"></i></a> |
-                    <a asp-action="Delete" asp-route-id="@item.IncidenteID" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    <a asp-action="Edit" asp-route-id="@item.IncidenteID" class="btn btn-warning">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@item.IncidenteID" class="btn btn-danger">Eliminar</a>
                 </td>
             </tr>
         }

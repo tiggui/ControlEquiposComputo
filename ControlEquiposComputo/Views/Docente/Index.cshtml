@@ -1,0 +1,38 @@
+﻿@model IEnumerable<ControlEquiposComputo.Models.Docente>
+
+@{
+    ViewData["Title"] = "Docentes";
+}
+
+<h1>Docentes</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Crear Nuevo Docente</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Curso</th>
+            <th>Email</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Nombre</td>
+                <td>@item.Apellido</td>
+                <td>@item.Curso</td>
+                <td>@item.Email</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.DocenteID" class="btn btn-warning">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@item.DocenteID" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

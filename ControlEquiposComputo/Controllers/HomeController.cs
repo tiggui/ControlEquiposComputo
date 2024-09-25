@@ -1,59 +1,32 @@
 using ControlEquiposComputo.Data;
-using ControlEquiposComputo.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Diagnostics;
 
-namespace ControlEquiposComputo.Controllers
+public class HomeController : Controller
 {
-    public class HomeController : Controller
+    private readonly AppDbContext _context;
+
+    public HomeController(AppDbContext context)
     {
+        _context = context;
+    }
 
-        private readonly AppDbContext db;
+    public IActionResult Index()
+    {
+        // Obtener la lista de clases para mostrar en el Home
+        var clases = _context.Clases.ToList();
+        return View(clases);  // Enviar la lista de clases al Index de Home
+    }
 
-        public HomeController(AppDbContext context)
-        {
-            db = context;
-        }
-        public ActionResult Index()
-        {
-            
-            var laboratorios = db.Laboratorios.ToList();
-            var equipos = db.Equipos.ToList();
-            var mantenimientosPendientes = db.Mantenimientos.Where(m => m.Descripcion != "Pendiente").ToList();
-            var reservasHoy = db.Reservas.Where(r => r.FechaReserva == System.DateTime.Today).ToList();
-            var usoHoy = db.Reservas.Where(u => u.FechaReserva == System.DateTime.Today).ToList();
+    // Acción que devuelve el parcial con la lista de UsoEquipos filtrados por ClaseID
+    public IActionResult GetUsoEquiposPorClase(int claseId)
+    {
+        var usoEquipos = _context.UsoEquipos
+                                  .Where(u => u.ClaseID == claseId)
+                                  .Include(u => u.Estudiante)
+                                  .Include(u => u.Equipo)
+                                  .ToList();
 
-            
-            ViewBag.Laboratorios = laboratorios;
-            ViewBag.Equipos = equipos;
-            ViewBag.MantenimientosPendientes = mantenimientosPendientes;
-            ViewBag.ReservasHoy = reservasHoy;
-            ViewBag.UsoHoy = usoHoy;
-
-            return View();
-            //private readonly ILogger<HomeController> _logger;
-
-            //public HomeController(ILogger<HomeController> logger)
-            //{
-            //    _logger = logger;
-            //}
-
-            //public IActionResult Index()
-            //{
-            //    return View();
-            //}
-
-            //public IActionResult Privacy()
-            //{
-            //    return View();
-            //}
-
-            //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-            //public IActionResult Error()
-            //{
-            //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-            //}
-        }
+        return PartialView("_UsoEquiposPartial", usoEquipos);  // Retorna la vista parcial
     }
 }

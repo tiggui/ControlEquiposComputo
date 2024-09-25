@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<ControlEquiposComputo.Models.Tecnico>
 
 @{
-    ViewData["Title"] = "Lista de Técnicos";
+    ViewData["Title"] = "Técnicos";
 }
 
-<h2>Técnicos</h2>
+<h1>Técnicos</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i> Registrar Nuevo Técnico</a>
+    <a asp-action="Create" class="btn btn-primary">Crear Nuevo Técnico</a>
 </p>
 
 <table class="table">
@@ -18,7 +18,7 @@
             <th>Especialidad</th>
             <th>Teléfono</th>
             <th>Email</th>
-            <th></th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -31,9 +31,8 @@
                 <td>@item.Telefono</td>
                 <td>@item.Email</td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.TecnicoID" class="btn btn-sm btn-success"><i class="fas fa-edit"></i></a> |
-                    <a asp-action="Details" asp-route-id="@item.TecnicoID" class="btn btn-sm btn-secondary"><i class="fas fa-info-circle"></i></a> |
-                    <a asp-action="Delete" asp-route-id="@item.TecnicoID" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></a>
+                    <a asp-action="Edit" asp-route-id="@item.TecnicoID" class="btn btn-warning">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@item.TecnicoID" class="btn btn-danger">Eliminar</a>
                 </td>
             </tr>
         }

@@ -4,21 +4,14 @@
     ViewData["Title"] = "Eliminar Incidente";
 }
 
-<h2>Eliminar Incidente</h2>
+<h1>Eliminar Incidente</h1>
 
 <div>
-    <h4>Incidente</h4>
-    <hr />
+    <h3>¿Estás seguro de que quieres eliminar este incidente?</h3>
     <dl class="row">
-        <dt class="col-sm-2">Laboratorio</dt>
-        <dd class="col-sm-10">@Model.Laboratorio.NombreLaboratorio</dd>
-        <dt class="col-sm-2">Equipo</dt>
-        <dd class="col-sm-10">@Model.Equipo.Marca</dd>
-        <dt class="col-sm-2">Usuario</dt>
-        <dd class="col-sm-10">@Model.Usuario.Nombre</dd>
-        <dt class="col-sm-2">Técnico</dt>
-        <dd class="col-sm-10">@Model.Tecnico.Nombre</dd>
-        <dt class="col-sm-2">Fecha de Incidente</dt>
+        <dt class="col-sm-2">Uso de Equipo</dt>
+        <dd class="col-sm-10">@Model.UsoEquipo.Actividad</dd>
+        <dt class="col-sm-2">Fecha del Incidente</dt>
         <dd class="col-sm-10">@Model.FechaIncidente.ToShortDateString()</dd>
         <dt class="col-sm-2">Descripción</dt>
         <dd class="col-sm-10">@Model.Descripcion</dd>
@@ -27,10 +20,8 @@
     </dl>
 </div>
 
-<form asp-action="Delete">
+<form asp-action="Delete" method="post">
     <input type="hidden" asp-for="IncidenteID" />
-    <div class="form-group">
-        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
-        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
-    </div>
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
 </form>

@@ -1,34 +1,37 @@
 ﻿@model ControlEquiposComputo.Models.Mantenimiento
 
 @{
-    ViewData["Title"] = "Registrar Mantenimiento";
+    ViewData["Title"] = "Crear Mantenimiento";
 }
 
-<h2>Registrar Nuevo Mantenimiento</h2>
+<h1>Crear Mantenimiento</h1>
 
-<form asp-action="Create">
+<form asp-action="Create" method="post">
     <div class="form-group">
-        <label asp-for="EquipoID" class="control-label"></label>
-        <select asp-for="EquipoID" class="form-control" asp-items="ViewBag.EquipoID"></select>
-        <span asp-validation-for="EquipoID" class="text-danger"></span>
-    </div>
-    <div class="form-group">
-        <label asp-for="TecnicoID" class="control-label"></label>
+        <label asp-for="TecnicoID"></label>
         <select asp-for="TecnicoID" class="form-control" asp-items="ViewBag.TecnicoID"></select>
         <span asp-validation-for="TecnicoID" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="FechaMantenimiento" class="control-label"></label>
+        <label asp-for="EquipoID"></label>
+        <select asp-for="EquipoID" class="form-control" asp-items="ViewBag.EquipoID"></select>
+        <span asp-validation-for="EquipoID" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="FechaMantenimiento"></label>
         <input asp-for="FechaMantenimiento" class="form-control" type="date" />
         <span asp-validation-for="FechaMantenimiento" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <label asp-for="Descripcion" class="control-label"></label>
-        <textarea asp-for="Descripcion" class="form-control"></textarea>
+        <label asp-for="Descripcion"></label>
+        <input asp-for="Descripcion" class="form-control" />
         <span asp-validation-for="Descripcion" class="text-danger"></span>
     </div>
     <div class="form-group">
-        <input type="submit" value="Registrar" class="btn btn-primary" />
-        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+        <label asp-for="Estado"></label>
+        <input asp-for="Estado" class="form-control" />
+        <span asp-validation-for="Estado" class="text-danger"></span>
     </div>
+    <button type="submit" class="btn btn-primary">Crear</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
 </form>

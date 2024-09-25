@@ -4,12 +4,12 @@
     ViewData["Title"] = "Eliminar Técnico";
 }
 
-<h2>Eliminar Técnico</h2>
+<h1>Eliminar Técnico</h1>
 
-<h3>¿Está seguro que desea eliminar a este técnico?</h3>
+<h3>¿Estás seguro de que deseas eliminar este técnico?</h3>
 
 <div>
-    <h4>Detalles</h4>
+    <h4>Técnico</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">Nombre</dt>
@@ -25,10 +25,8 @@
     </dl>
 </div>
 
-<form asp-action="Delete">
+<form asp-action="Delete" method="post">
     <input type="hidden" asp-for="TecnicoID" />
-    <div class="form-group">
-        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
-        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
-    </div>
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
 </form>

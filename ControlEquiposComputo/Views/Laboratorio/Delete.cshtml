@@ -4,7 +4,7 @@
     ViewData["Title"] = "Eliminar Laboratorio";
 }
 
-<h2>Eliminar Laboratorio</h2>
+<h1>Eliminar Laboratorio</h1>
 
 <h3>¿Estás seguro de que deseas eliminar este laboratorio?</h3>
 
@@ -18,15 +18,11 @@
         <dd class="col-sm-10">@Model.Ubicacion</dd>
         <dt class="col-sm-2">Capacidad</dt>
         <dd class="col-sm-10">@Model.Capacidad</dd>
-        <dt class="col-sm-2">Responsable</dt>
-        <dd class="col-sm-10">@Model.Responsable</dd>
     </dl>
 </div>
 
-<form asp-action="Delete">
+<form asp-action="Delete" method="post">
     <input type="hidden" asp-for="LaboratorioID" />
-    <div class="form-group">
-        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
-        <a asp-action="Index">Cancelar</a>
-    </div>
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
 </form>

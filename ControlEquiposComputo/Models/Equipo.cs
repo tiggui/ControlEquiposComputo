@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ControlEquiposComputo.Models
 {
@@ -7,22 +8,28 @@ namespace ControlEquiposComputo.Models
         [Key]
         public int EquipoID { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "El laboratorio es requerido")]
+        [ForeignKey("Laboratorio")]
         public int LaboratorioID { get; set; }
 
-        [Required]
-        [StringLength(50)]
+        [Required(ErrorMessage = "El número de equipo es requerido")]
+        [StringLength(45, ErrorMessage = "El número de equipo no puede exceder 45 caracteres")]
+        public string NumeroEquipo { get; set; }
+
+        [Required(ErrorMessage = "La marca es requerida")]
+        [StringLength(45, ErrorMessage = "La marca no puede exceder 45 caracteres")]
         public string Marca { get; set; }
 
+        [Required(ErrorMessage = "El modelo es requerido")]
+        [StringLength(45, ErrorMessage = "El modelo no puede exceder 45 caracteres")]
         public string Modelo { get; set; }
 
-        public string TipoEquipo { get; set; }
+        [Required(ErrorMessage = "El estado es requerido")]
+        [StringLength(45, ErrorMessage = "El estado no puede exceder 45 caracteres")]
+        public string Estado { get; set; }
 
-        public string NumeroSerie { get; set; }
-
-        public string Estado { get; set; }//Activo, Inactivo, En Reparación
-
-        // Relación con Laboratorio
-        public virtual Laboratorio Laboratorio { get; set; }
+        // Navigation property
+        public Laboratorio Laboratorio { get; set; }
+        public ICollection<UsoEquipo> UsoEquipos { get; set; }
     }
 }

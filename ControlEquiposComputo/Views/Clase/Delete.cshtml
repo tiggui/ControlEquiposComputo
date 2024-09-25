@@ -1,0 +1,29 @@
+﻿@model ControlEquiposComputo.Models.Clase
+
+@{
+    ViewData["Title"] = "Eliminar Clase";
+}
+
+<h1>Eliminar Clase</h1>
+
+<div>
+    <h3>¿Estás seguro de que quieres eliminar esta clase?</h3>
+    <dl class="row">
+        <dt class="col-sm-2">Nombre de Clase</dt>
+        <dd class="col-sm-10">@Model.NombreClase</dd>
+        <dt class="col-sm-2">Docente</dt>
+        <dd class="col-sm-10">@Model.Docente.Nombre</dd>
+        <dt class="col-sm-2">Laboratorio</dt>
+        <dd class="col-sm-10">@Model.Laboratorio.NombreLaboratorio</dd>
+        <dt class="col-sm-2">Inicio</dt>
+        <dd class="col-sm-10">@Model.Inicio</dd>
+        <dt class="col-sm-2">Fin</dt>
+        <dd class="col-sm-10">@Model.Fin</dd>
+    </dl>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="ClaseID" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

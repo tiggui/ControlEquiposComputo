@@ -1,33 +1,36 @@
-﻿namespace ControlEquiposComputo.Models;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-public class UsoEquipo
+namespace ControlEquiposComputo.Models
 {
-    [Key]
-    public int UsoEquipoID { get; set; }
+    public class UsoEquipo
+    {
+        [Key]
+        public int UsoEquipoID { get; set; }
 
-    [ForeignKey("Equipo")]
-    public int EquipoID { get; set; }
+        [Required(ErrorMessage = "El estudiante es requerido")]
+        [ForeignKey("Estudiante")]
+        public int EstudianteID { get; set; }
 
-    [ForeignKey("Usuario")]
-    public int UsuarioID { get; set; }  // Quién está utilizando el equipo
+        [Required(ErrorMessage = "El equipo es requerido")]
+        [ForeignKey("Equipo")]
+        public int EquipoID { get; set; }
 
-    [Required]
-    public DateTime FechaUso { get; set; }
+        [Required(ErrorMessage = "La clase es requerida")]
+        [ForeignKey("Clase")]
+        public int ClaseID { get; set; }
 
-    [Required]
-    public TimeSpan HoraInicio { get; set; }
+        [Required(ErrorMessage = "La fecha de asignación es requerida")]
+        public DateTime FechaAsignacion { get; set; }
 
-    [Required]
-    public TimeSpan HoraFin { get; set; }
+        [Required(ErrorMessage = "La actividad es requerida")]
+        [StringLength(45, ErrorMessage = "La actividad no puede exceder 45 caracteres")]
+        public string Actividad { get; set; }
 
-    [Required]
-    [StringLength(200)]
-    public string Actividad { get; set; }  // Ej. Clase, Taller, Investigación, Mantenimiento
-
-    public virtual Equipo Equipo { get; set; }
-    public virtual Usuario Usuario { get; set; }
+        // Navigation properties
+        public Estudiante Estudiante { get; set; }
+        public Equipo Equipo { get; set; }
+        public Clase Clase { get; set; }
+    }
 }
-
