@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ControlEquiposComputo.Data; // Cambia esto si es necesario
-using ControlEquiposComputo.Models; // Cambia esto si es necesario
+using ControlEquiposComputo.Data; 
+using ControlEquiposComputo.Models; 
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -28,28 +28,48 @@ public class UsoEquipoController : Controller
     // GET: UsoEquipos/Create
     public IActionResult Create()
     {
+        UsoEquipo nuevoUsoEquipo = new UsoEquipo
+        {
+            FechaRegistro = DateTime.Now // Valor por defecto en el controlador
+        };
+
         ViewData["EstudianteID"] = new SelectList(_context.Estudiantes, "EstudianteID", "Nombre");
         ViewData["EquipoID"] = new SelectList(_context.Equipos, "EquipoID", "NumeroEquipo");
         ViewData["ClaseID"] = new SelectList(_context.Clases, "ClaseID", "NombreClase");
-        return View();
+        return View(nuevoUsoEquipo);
     }
 
-    // POST: UsoEquipos/Create
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create(UsoEquipo usoEquipo)
+    public async Task<IActionResult> Create(UsoEquipo usoEquipo, string DescripcionIncidente)
     {
         if (ModelState.IsValid)
         {
             _context.Add(usoEquipo);
             await _context.SaveChangesAsync();
+
+            // Si el usuario desea registrar un incidente
+            if (usoEquipo.RegistrarIncidente && !string.IsNullOrEmpty(DescripcionIncidente))
+            {
+                Incidente incidente = new Incidente
+                {
+                    UsoEquipoID = usoEquipo.UsoEquipoID,
+                    FechaIncidente = DateTime.Now,
+                    Descripcion = DescripcionIncidente,
+                    Estado = "Pendiente"
+                };
+                _context.Add(incidente);
+                await _context.SaveChangesAsync();
+            }
+
             return RedirectToAction(nameof(Index));
         }
+        ViewData["ClaseID"] = new SelectList(_context.Clases, "ClaseID", "NombreClase", usoEquipo.ClaseID);
         ViewData["EstudianteID"] = new SelectList(_context.Estudiantes, "EstudianteID", "Nombre", usoEquipo.EstudianteID);
         ViewData["EquipoID"] = new SelectList(_context.Equipos, "EquipoID", "NumeroEquipo", usoEquipo.EquipoID);
-        ViewData["ClaseID"] = new SelectList(_context.Clases, "ClaseID", "NombreClase", usoEquipo.ClaseID);
         return View(usoEquipo);
     }
+
 
     // GET: UsoEquipos/Edit/5
     public async Task<IActionResult> Edit(int id)

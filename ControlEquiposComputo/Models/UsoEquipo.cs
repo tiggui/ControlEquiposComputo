@@ -22,11 +22,14 @@ namespace ControlEquiposComputo.Models
         public int ClaseID { get; set; }
 
         [Required(ErrorMessage = "La fecha de asignación es requerida")]
-        public DateTime FechaAsignacion { get; set; }
+        public DateTime FechaRegistro { get; set; } = DateTime.Now;
 
         [Required(ErrorMessage = "La actividad es requerida")]
         [StringLength(45, ErrorMessage = "La actividad no puede exceder 45 caracteres")]
         public string Actividad { get; set; }
+
+        public bool RegistrarIncidente { get; set; } = false;
+
 
         // Navigation properties
         public Estudiante Estudiante { get; set; }

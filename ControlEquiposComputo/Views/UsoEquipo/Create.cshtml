@@ -4,34 +4,77 @@
     ViewData["Title"] = "Crear Uso de Equipo";
 }
 
-<h1>Crear Uso de Equipo</h1>
+<h2>Crear Uso de Equipo</h2>
 
-<form asp-action="Create" method="post">
+<form asp-action="Create">
     <div class="form-group">
-        <label asp-for="EstudianteID"></label>
+        <label asp-for="EstudianteID" class="control-label"></label>
         <select asp-for="EstudianteID" class="form-control" asp-items="ViewBag.EstudianteID"></select>
         <span asp-validation-for="EstudianteID" class="text-danger"></span>
     </div>
+
     <div class="form-group">
-        <label asp-for="EquipoID"></label>
+        <label asp-for="EquipoID" class="control-label"></label>
         <select asp-for="EquipoID" class="form-control" asp-items="ViewBag.EquipoID"></select>
         <span asp-validation-for="EquipoID" class="text-danger"></span>
     </div>
+
     <div class="form-group">
-        <label asp-for="ClaseID"></label>
+        <label asp-for="ClaseID" class="control-label"></label>
         <select asp-for="ClaseID" class="form-control" asp-items="ViewBag.ClaseID"></select>
         <span asp-validation-for="ClaseID" class="text-danger"></span>
     </div>
+
     <div class="form-group">
-        <label asp-for="FechaAsignacion"></label>
-        <input asp-for="FechaAsignacion" class="form-control" type="date" />
-        <span asp-validation-for="FechaAsignacion" class="text-danger"></span>
+        <label asp-for="FechaRegistro" class="control-label"></label>
+        <input asp-for="FechaRegistro" class="form-control"/>
+        <span asp-validation-for="FechaRegistro" class="text-danger"></span>
+     
     </div>
+
     <div class="form-group">
-        <label asp-for="Actividad"></label>
+        <label asp-for="Actividad" class="control-label"></label>
         <input asp-for="Actividad" class="form-control" />
         <span asp-validation-for="Actividad" class="text-danger"></span>
     </div>
-    <button type="submit" class="btn btn-primary">Crear</button>
-    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+
+    <!-- Opción para registrar un incidente -->
+    <div class="form-group">
+        <div class="form-check">
+            <input asp-for="RegistrarIncidente" id="RegistrarIncidente" class="form-check-input" type="checkbox" />
+            <label asp-for="RegistrarIncidente" class="form-check-label">Registrar Incidente</label>
+        </div>
+    </div>
+
+    <!-- Campo para ingresar la descripción del incidente -->
+    <div id="incidenteSection" class="form-group" style="display:none;">
+        <label for="DescripcionIncidente">Descripción del Incidente</label>
+        <textarea id="DescripcionIncidente" name="DescripcionIncidente" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Crear" class="btn btn-primary" />
+    </div>
 </form>
+
+<div>
+    <a asp-action="Index">Volver a la lista</a>
+</div>
+
+@section Scripts {
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#RegistrarIncidente').change(function () {
+                    if ($(this).is(':checked')) {
+                        $('#incidenteSection').show(); // Muestra la sección de incidente si se selecciona el checkbox
+                    } else {
+                        $('#incidenteSection').hide(); // Oculta la sección si no está seleccionado
+                    }
+                });
+            });
+        </script>
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

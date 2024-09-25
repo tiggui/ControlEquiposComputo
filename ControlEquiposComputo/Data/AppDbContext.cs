@@ -25,86 +25,16 @@ namespace ControlEquiposComputo.Data
 
             // Datos de muestra para la tabla Docente
             modelBuilder.Entity<Docente>().HasData(
-                new Docente
-                {
-                    DocenteID = 1,
-                    Nombre = "Juan",
-                    Apellido = "Pérez",
-                    Curso = "Matemáticas",
-                    Email = "juan.perez@ejemplo.com"
-                },
-                new Docente
-                {
-                    DocenteID = 2,
-                    Nombre = "María",
-                    Apellido = "Gómez",
-                    Curso = "Física",
-                    Email = "maria.gomez@ejemplo.com"
-                },
-                new Docente
-                {
-                    DocenteID = 3,
-                    Nombre = "Luis",
-                    Apellido = "Fernández",
-                    Curso = "Química",
-                    Email = "luis.fernandez@ejemplo.com"
-                },
-                new Docente
-                {
-                    DocenteID = 4,
-                    Nombre = "Ana",
-                    Apellido = "Rodríguez",
-                    Curso = "Biología",
-                    Email = "ana.rodriguez@ejemplo.com"
-                },
-                new Docente
-                {
-                    DocenteID = 5,
-                    Nombre = "Carlos",
-                    Apellido = "López",
-                    Curso = "Historia",
-                    Email = "carlos.lopez@ejemplo.com"
-                },
-                new Docente
-                {
-                    DocenteID = 6,
-                    Nombre = "Sofía",
-                    Apellido = "Martínez",
-                    Curso = "Geografía",
-                    Email = "sofia.martinez@ejemplo.com"
-                },
-                new Docente
-                {
-                    DocenteID = 7,
-                    Nombre = "Miguel",
-                    Apellido = "Torres",
-                    Curso = "Lengua",
-                    Email = "miguel.torres@ejemplo.com"
-                },
-                new Docente
-                {
-                    DocenteID = 8,
-                    Nombre = "Laura",
-                    Apellido = "Vega",
-                    Curso = "Filosofía",
-                    Email = "laura.vega@ejemplo.com"
-                },
-                new Docente
-                {
-                    DocenteID = 9,
-                    Nombre = "José",
-                    Apellido = "Ramírez",
-                    Curso = "Educación Física",
-                    Email = "jose.ramirez@ejemplo.com"
-                },
-                new Docente
-                {
-                    DocenteID = 10,
-                    Nombre = "Patricia",
-                    Apellido = "Silva",
-                    Curso = "Arte",
-                    Email = "patricia.silva@ejemplo.com"
-                }
+                new Docente{DocenteID = 1,Nombre = "Juan",Apellido = "Pérez",Curso = "Inteligencia de Negocios",Email = "juan.perez@unc.edu.pe"},
+                new Docente{DocenteID = 2,Nombre = "María",Apellido = "Gómez",Curso = "Programación Aplicada",Email = "maria.gomez@unc.edu.pe"},
+                new Docente{DocenteID = 3,Nombre = "Luis",Apellido = "Fernández",Curso = "Base de datos",Email = "luis.fernandez@unc.edu.pe"},
+                new Docente{DocenteID = 4,Nombre = "Ana",Apellido = "Rodríguez",Curso = "Sistemas Inteligente",Email = "ana.rodriguez@unc.edu.pe"},
+                new Docente{DocenteID = 5,Nombre = "Carlos",Apellido = "López",Curso = "Algoritmos y Estructura de datos",Email = "carlos.lopez@unc.edu.pe"},
+                new Docente{DocenteID = 6,Nombre = "Sofía",Apellido = "Martínez",Curso = "Fundamentos de Programacíón",Email = "sofia.martinez@unc.edu.pe"},
+                new Docente{DocenteID = 7,Nombre = "Miguel",Apellido = "Torres",Curso = "Redes",Email = "miguel.torres@unc.edu.pe"},
+                new Docente{DocenteID = 8,Nombre = "Laura",Apellido = "Vega",Curso = "Ingeniería de software",Email = "laura.vega@unc.edu.pe"},
+                new Docente{DocenteID = 9,Nombre = "José",Apellido = "Ramírez",Curso = "Arquitectura de Computador",Email = "jose.ramirez@unc.edu.pe"},
+                new Docente{DocenteID = 10,Nombre = "Patricia",Apellido = "Silva",Curso = "Sistemas de Información",Email = "patricia.silva@unc.edu.pe"}
             );
 
             modelBuilder.Entity<Estudiante>().HasData(
@@ -113,70 +43,70 @@ namespace ControlEquiposComputo.Data
            EstudianteID = 1,
            Nombre = "Carlos",
            Apellido = "Ramírez",
-           Email = "carlos.ramirez@ejemplo.com"
+           Email = "carlos.ramirez@unc.edu.pe"
        },
        new Estudiante
        {
            EstudianteID = 2,
            Nombre = "Lucía",
            Apellido = "García",
-           Email = "lucia.garcia@ejemplo.com"
+           Email = "lucia.garcia@unc.edu.pe"
        },
        new Estudiante
        {
            EstudianteID = 3,
            Nombre = "Pedro",
            Apellido = "Méndez",
-           Email = "pedro.mendez@ejemplo.com"
+           Email = "pedro.mendez@unc.edu.pe"
        },
        new Estudiante
        {
            EstudianteID = 4,
            Nombre = "Sofía",
            Apellido = "Martínez",
-           Email = "sofia.martinez@ejemplo.com"
+           Email = "sofia.martinez@unc.edu.pe"
        },
        new Estudiante
        {
            EstudianteID = 5,
            Nombre = "Andrés",
            Apellido = "Gómez",
-           Email = "andres.gomez@ejemplo.com"
+           Email = "andres.gomez@unc.edu.pe"
        },
        new Estudiante
        {
            EstudianteID = 6,
            Nombre = "Isabel",
            Apellido = "Ruiz",
-           Email = "isabel.ruiz@ejemplo.com"
+           Email = "isabel.ruiz@unc.edu.pe"
        },
        new Estudiante
        {
            EstudianteID = 7,
            Nombre = "Javier",
            Apellido = "López",
-           Email = "javier.lopez@ejemplo.com"
+           Email = "javier.lopez@unc.edu.pe"
        },
        new Estudiante
        {
            EstudianteID = 8,
            Nombre = "Natalia",
            Apellido = "Sánchez",
-           Email = "natalia.sanchez@ejemplo.com"
+           Email = "natalia.sanchez@unc.edu.pe"
        },
        new Estudiante
        {
            EstudianteID = 9,
            Nombre = "Gabriel",
            Apellido = "Díaz",
-           Email = "gabriel.diaz@ejemplo.com"
+           Email = "gabriel.diaz@unc.edu.pe"
        },
        new Estudiante
        {
            EstudianteID = 10,
            Nombre = "María",
            Apellido = "Fernández",
-           Email = "maria.fernandez@ejemplo.com"
+           Email = "maria.fernandez@unc.edu.pe"
        }
    );
 
@@ -184,42 +114,42 @@ namespace ControlEquiposComputo.Data
         new Laboratorio
         {
             LaboratorioID = 1,
-            NombreLaboratorio = "Laboratorio de Física",
-            Ubicacion = "Edificio A, Piso 1",
+            NombreLaboratorio = "Laboratorio 201",
+            Ubicacion = "Piso 2",
             Capacidad = 30
         },
         new Laboratorio
         {
             LaboratorioID = 2,
-            NombreLaboratorio = "Laboratorio de Informática",
-            Ubicacion = "Edificio C, Piso 3",
+            NombreLaboratorio = "Laboratorio 302",
+            Ubicacion = "Piso 3",
             Capacidad = 40
         }
     );
             modelBuilder.Entity<Equipo>().HasData(
         // Equipos para Laboratorio 1
-        new Equipo { EquipoID = 1, LaboratorioID = 1, NumeroEquipo = "EQF-01", Marca = "HP", Modelo = "ProBook", Estado = "Operativo" },
-        new Equipo { EquipoID = 2, LaboratorioID = 1, NumeroEquipo = "EQF-02", Marca = "Dell", Modelo = "Inspiron", Estado = "Operativo" },
-        new Equipo { EquipoID = 3, LaboratorioID = 1, NumeroEquipo = "EQF-03", Marca = "Lenovo", Modelo = "ThinkPad", Estado = "Operativo" },
-        new Equipo { EquipoID = 4, LaboratorioID = 1, NumeroEquipo = "EQF-04", Marca = "Asus", Modelo = "ZenBook", Estado = "Operativo" },
-        new Equipo { EquipoID = 5, LaboratorioID = 1, NumeroEquipo = "EQF-05", Marca = "Acer", Modelo = "Aspire", Estado = "Operativo" },
-        new Equipo { EquipoID = 6, LaboratorioID = 1, NumeroEquipo = "EQF-06", Marca = "HP", Modelo = "Pavilion", Estado = "Operativo" },
-        new Equipo { EquipoID = 7, LaboratorioID = 1, NumeroEquipo = "EQF-07", Marca = "Apple", Modelo = "MacBook Pro", Estado = "Operativo" },
-        new Equipo { EquipoID = 8, LaboratorioID = 1, NumeroEquipo = "EQF-08", Marca = "Samsung", Modelo = "Chromebook", Estado = "Operativo" },
-        new Equipo { EquipoID = 9, LaboratorioID = 1, NumeroEquipo = "EQF-09", Marca = "Toshiba", Modelo = "Satellite", Estado = "Operativo" },
-        new Equipo { EquipoID = 10, LaboratorioID = 1, NumeroEquipo = "EQF-10", Marca = "Dell", Modelo = "XPS", Estado = "Operativo" },
+        new Equipo { EquipoID = 1, LaboratorioID = 1, NumeroEquipo = "LAB1-01", Marca = "HP", Modelo = "ProBook", Estado = "Operativo" },
+        new Equipo { EquipoID = 2, LaboratorioID = 1, NumeroEquipo = "LAB1-02", Marca = "Dell", Modelo = "Inspiron", Estado = "Operativo" },
+        new Equipo { EquipoID = 3, LaboratorioID = 1, NumeroEquipo = "LAB1-03", Marca = "Lenovo", Modelo = "ThinkPad", Estado = "Operativo" },
+        new Equipo { EquipoID = 4, LaboratorioID = 1, NumeroEquipo = "LAB1-04", Marca = "Asus", Modelo = "ZenBook", Estado = "Operativo" },
+        new Equipo { EquipoID = 5, LaboratorioID = 1, NumeroEquipo = "LAB1-05", Marca = "Acer", Modelo = "Aspire", Estado = "Operativo" },
+        new Equipo { EquipoID = 6, LaboratorioID = 1, NumeroEquipo = "LAB1-06", Marca = "HP", Modelo = "Pavilion", Estado = "Operativo" },
+        new Equipo { EquipoID = 7, LaboratorioID = 1, NumeroEquipo = "LAB1-07", Marca = "Apple", Modelo = "MacBook Pro", Estado = "Operativo" },
+        new Equipo { EquipoID = 8, LaboratorioID = 1, NumeroEquipo = "LAB1-08", Marca = "Samsung", Modelo = "Chromebook", Estado = "Operativo" },
+        new Equipo { EquipoID = 9, LaboratorioID = 1, NumeroEquipo = "LAB1-09", Marca = "Toshiba", Modelo = "Satellite", Estado = "Operativo" },
+        new Equipo { EquipoID = 10, LaboratorioID = 1, NumeroEquipo = "LAB1-10", Marca = "Dell", Modelo = "XPS", Estado = "Operativo" },
 
         // Equipos para Laboratorio 2
-        new Equipo { EquipoID = 11, LaboratorioID = 2, NumeroEquipo = "EQI-01", Marca = "HP", Modelo = "EliteBook", Estado = "Operativo" },
-        new Equipo { EquipoID = 12, LaboratorioID = 2, NumeroEquipo = "EQI-02", Marca = "Dell", Modelo = "Latitude", Estado = "Operativo" },
-        new Equipo { EquipoID = 13, LaboratorioID = 2, NumeroEquipo = "EQI-03", Marca = "Lenovo", Modelo = "IdeaPad", Estado = "Operativo" },
-        new Equipo { EquipoID = 14, LaboratorioID = 2, NumeroEquipo = "EQI-04", Marca = "Asus", Modelo = "VivoBook", Estado = "Operativo" },
-        new Equipo { EquipoID = 15, LaboratorioID = 2, NumeroEquipo = "EQI-05", Marca = "Acer", Modelo = "Nitro", Estado = "Operativo" },
-        new Equipo { EquipoID = 16, LaboratorioID = 2, NumeroEquipo = "EQI-06", Marca = "HP", Modelo = "Omen", Estado = "Operativo" },
-        new Equipo { EquipoID = 17, LaboratorioID = 2, NumeroEquipo = "EQI-07", Marca = "Apple", Modelo = "MacBook Air", Estado = "Operativo" },
-        new Equipo { EquipoID = 18, LaboratorioID = 2, NumeroEquipo = "EQI-08", Marca = "Samsung", Modelo = "Galaxy Book", Estado = "Operativo" },
-        new Equipo { EquipoID = 19, LaboratorioID = 2, NumeroEquipo = "EQI-09", Marca = "Toshiba", Modelo = "Tecra", Estado = "Operativo" },
-        new Equipo { EquipoID = 20, LaboratorioID = 2, NumeroEquipo = "EQI-10", Marca = "Dell", Modelo = "Precision", Estado = "Operativo" }
+        new Equipo { EquipoID = 11, LaboratorioID = 2, NumeroEquipo = "LAB3-01", Marca = "HP", Modelo = "EliteBook", Estado = "Operativo" },
+        new Equipo { EquipoID = 12, LaboratorioID = 2, NumeroEquipo = "LAB3-02", Marca = "Dell", Modelo = "Latitude", Estado = "Operativo" },
+        new Equipo { EquipoID = 13, LaboratorioID = 2, NumeroEquipo = "LAB3-03", Marca = "Lenovo", Modelo = "IdeaPad", Estado = "Operativo" },
+        new Equipo { EquipoID = 14, LaboratorioID = 2, NumeroEquipo = "LAB3-04", Marca = "Asus", Modelo = "VivoBook", Estado = "Operativo" },
+        new Equipo { EquipoID = 15, LaboratorioID = 2, NumeroEquipo = "LAB3-05", Marca = "Acer", Modelo = "Nitro", Estado = "Operativo" },
+        new Equipo { EquipoID = 16, LaboratorioID = 2, NumeroEquipo = "LAB3-06", Marca = "HP", Modelo = "Omen", Estado = "Operativo" },
+        new Equipo { EquipoID = 17, LaboratorioID = 2, NumeroEquipo = "LAB3-07", Marca = "Apple", Modelo = "MacBook Air", Estado = "Operativo" },
+        new Equipo { EquipoID = 18, LaboratorioID = 2, NumeroEquipo = "LAB3-08", Marca = "Samsung", Modelo = "Galaxy Book", Estado = "Operativo" },
+        new Equipo { EquipoID = 19, LaboratorioID = 2, NumeroEquipo = "LAB3-09", Marca = "Toshiba", Modelo = "Tecra", Estado = "Operativo" },
+        new Equipo { EquipoID = 20, LaboratorioID = 2, NumeroEquipo = "LAB3-10", Marca = "Dell", Modelo = "Precision", Estado = "Operativo" }
     );
 
             modelBuilder.Entity<Clase>().HasData(
@@ -256,7 +186,7 @@ namespace ControlEquiposComputo.Data
                     EstudianteID = random.Next(1, 11), // Asumiendo que tienes 10 estudiantes
                     EquipoID = random.Next(1, 21), // Asumiendo que tienes 20 equipos (10 por laboratorio)
                     ClaseID = random.Next(1, 16), // Asumiendo que tienes 15 clases
-                    FechaAsignacion = RandomDate(random, startDate, endDate),
+                    FechaRegistro = RandomDate(random, startDate, endDate),
                     Actividad = "Actividad " + i
                 });
             }
