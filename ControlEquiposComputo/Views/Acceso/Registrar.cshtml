@@ -1,0 +1,42 @@
+﻿@model ControlEquiposComputo.Models.RegistroModel
+
+<h2>Regístrate</h2>
+
+<div style="max-width: 400px; margin: 0 auto; padding: 20px; border: 1px solid #dee2e6; border-radius: 5px; background-color: #f8f9fa; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+    <form asp-action="Registrar" method="post">
+        <div class="form-group mb-3">
+            <label asp-for="Email" class="form-label"></label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-group mb-3">
+            <label asp-for="Password" class="form-label"></label>
+            <input asp-for="Password" class="form-control" />
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="form-group mb-4">
+            <label asp-for="ConfirmPassword" class="form-label"></label>
+            <input asp-for="ConfirmPassword" class="form-control" />
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+        <div class="form-group mb-3">
+            <label asp-for="UserType" class="form-label">Tipo de Usuario</label>
+            <select asp-for="UserType" class="form-control">
+                <option value="">Seleccione un tipo de usuario</option>
+                <option value="Docente">Docente</option>
+                <option value="Estudiante">Estudiante</option>
+                <option value="Tecnico">Técnico</option>
+            </select>
+            <span asp-validation-for="UserType" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary w-100">Registrar</button>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
