@@ -1,42 +1,47 @@
-﻿@model ControlEquiposComputo.Models.RegistroModel
-
-<h2>Regístrate</h2>
-
-<div style="max-width: 400px; margin: 0 auto; padding: 20px; border: 1px solid #dee2e6; border-radius: 5px; background-color: #f8f9fa; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
-    <form asp-action="Registrar" method="post">
-        <div class="form-group mb-3">
-            <label asp-for="Email" class="form-label"></label>
-            <input asp-for="Email" class="form-control" />
-            <span asp-validation-for="Email" class="text-danger"></span>
-        </div>
-        <div class="form-group mb-3">
-            <label asp-for="Password" class="form-label"></label>
-            <input asp-for="Password" class="form-control" />
-            <span asp-validation-for="Password" class="text-danger"></span>
-        </div>
-        <div class="form-group mb-4">
-            <label asp-for="ConfirmPassword" class="form-label"></label>
-            <input asp-for="ConfirmPassword" class="form-control" />
-            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-        </div>
-        <div class="form-group mb-3">
-            <label asp-for="UserType" class="form-label">Tipo de Usuario</label>
-            <select asp-for="UserType" class="form-control">
-                <option value="">Seleccione un tipo de usuario</option>
-                <option value="Docente">Docente</option>
-                <option value="Estudiante">Estudiante</option>
-                <option value="Tecnico">Técnico</option>
-            </select>
-            <span asp-validation-for="UserType" class="text-danger"></span>
-        </div>
-        <div class="form-group">
-            <button type="submit" class="btn btn-primary w-100">Registrar</button>
-        </div>
-    </form>
-</div>
-
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+﻿@model ControlEquiposComputo.ViewModels.DocenteVM;
+@{
+    Layout = null;
 }
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Registrarse</title>
+        <link rel="stylesheet" href="~/fortawesome/fontawesome-free/css/all.min.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/ControlEquiposComputo.styles.css" asp-append-version="true" />
+    </head>
+    <body>
+        <div class="row mt-5 justify-content-center">
+            <div class="col-sm-4" >
+                <div class="card">
+                <div class="card-header">
+                    Registrarse
+                </div>
+                <div class="card-body">
+                    <form asp-controller="Acceso" asp-action="Registrar" method="post">
+                        <input class="form-control mb-3" type="text" placeholder="Nombre" required asp-for="Nombre"/>
+                        <input class="form-control mb-3" type="text" placeholder="Apellido" required asp-for="Apellido"/>
+                        <input class="form-control mb-3" type="text" placeholder="Correo" required asp-for="Email"/>
+                        <input class="form-control mb-3" type="text" placeholder="Curso" required asp-for="Curso"/>
+                        <input class="form-control mb-3" type="password" placeholder="Contraseña" required asp-for="Contraseña" />
+                    <input class="form-control mb-3" type="password" placeholder="Confirmar Contraseña" required asp-for="ConfirmarContraseña" />
+                        <div class="d-grid gap-2 mb-3">
+                            <button class="btn btn-primary" type="submit">Regístrate</button>
+                        </div>
+                    @if(ViewData["Mensaje"]!= null)
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            @ViewData["Mensaje"]
+                        </div>
+                    }
+                    ¿Ya tienes una Cuenta? <a asp-controller="Acceso" asp-action="Login">Iniciar Sesión</a>
+
+
+                    </form>
+                </div>
+            </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace ControlEquiposComputo.Migrations
 {
     /// <inheritdoc />
-    public partial class ff : Migration
+    public partial class hello : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -22,6 +22,7 @@ namespace ControlEquiposComputo.Migrations
                     Nombre = table.Column<string>(type: "nvarchar(45)", maxLength: 45, nullable: false),
                     Apellido = table.Column<string>(type: "nvarchar(45)", maxLength: 45, nullable: false),
                     Curso = table.Column<string>(type: "nvarchar(45)", maxLength: 45, nullable: false),
+                    Contraseña = table.Column<string>(type: "nvarchar(45)", maxLength: 45, nullable: false),
                     Email = table.Column<string>(type: "nvarchar(45)", maxLength: 45, nullable: false)
                 },
                 constraints: table =>
@@ -169,7 +170,8 @@ namespace ControlEquiposComputo.Migrations
                     FechaRegistro = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Actividad = table.Column<string>(type: "nvarchar(45)", maxLength: 45, nullable: false),
                     RegistrarIncidente = table.Column<bool>(type: "bit", nullable: false),
-                    Incidentes = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Incidentes = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Imagen = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -218,19 +220,19 @@ namespace ControlEquiposComputo.Migrations
 
             migrationBuilder.InsertData(
                 table: "Docentes",
-                columns: new[] { "DocenteID", "Apellido", "Curso", "Email", "Nombre" },
+                columns: new[] { "DocenteID", "Apellido", "Contraseña", "Curso", "Email", "Nombre" },
                 values: new object[,]
                 {
-                    { 1, "Pérez", "Inteligencia de Negocios", "juan.perez@unc.edu.pe", "Juan" },
-                    { 2, "Gómez", "Programación Aplicada", "maria.gomez@unc.edu.pe", "María" },
-                    { 3, "Fernández", "Base de datos", "luis.fernandez@unc.edu.pe", "Luis" },
-                    { 4, "Rodríguez", "Sistemas Inteligente", "ana.rodriguez@unc.edu.pe", "Ana" },
-                    { 5, "López", "Algoritmos y Estructura de datos", "carlos.lopez@unc.edu.pe", "Carlos" },
-                    { 6, "Martínez", "Fundamentos de Programacíón", "sofia.martinez@unc.edu.pe", "Sofía" },
-                    { 7, "Torres", "Redes", "miguel.torres@unc.edu.pe", "Miguel" },
-                    { 8, "Vega", "Ingeniería de software", "laura.vega@unc.edu.pe", "Laura" },
-                    { 9, "Ramírez", "Arquitectura de Computador", "jose.ramirez@unc.edu.pe", "José" },
-                    { 10, "Silva", "Sistemas de Información", "patricia.silva@unc.edu.pe", "Patricia" }
+                    { 1, "Pérez", "Juan", "Inteligencia de Negocios", "juan.perez@unc.edu.pe", "Juan" },
+                    { 2, "Gómez", "Juan", "Programación Aplicada", "maria.gomez@unc.edu.pe", "María" },
+                    { 3, "Fernández", "Juan", "Base de datos", "luis.fernandez@unc.edu.pe", "Luis" },
+                    { 4, "Rodríguez", "Juan", "Sistemas Inteligente", "ana.rodriguez@unc.edu.pe", "Ana" },
+                    { 5, "López", "Juan", "Algoritmos y Estructura de datos", "carlos.lopez@unc.edu.pe", "Carlos" },
+                    { 6, "Martínez", "Juan", "Fundamentos de Programacíón", "sofia.martinez@unc.edu.pe", "Sofía" },
+                    { 7, "Torres", "Juan", "Redes", "miguel.torres@unc.edu.pe", "Miguel" },
+                    { 8, "Vega", "Juan", "Ingeniería de software", "laura.vega@unc.edu.pe", "Laura" },
+                    { 9, "Ramírez", "Juan", "Arquitectura de Computador", "jose.ramirez@unc.edu.pe", "José" },
+                    { 10, "Silva", "Juan", "Sistemas de Información", "patricia.silva@unc.edu.pe", "Patricia" }
                 });
 
             migrationBuilder.InsertData(
@@ -310,59 +312,59 @@ namespace ControlEquiposComputo.Migrations
 
             migrationBuilder.InsertData(
                 table: "UsoEquipos",
-                columns: new[] { "UsoEquipoID", "Actividad", "ClaseID", "EquipoID", "EstudianteID", "FechaRegistro", "Incidentes", "RegistrarIncidente" },
+                columns: new[] { "UsoEquipoID", "Actividad", "ClaseID", "EquipoID", "EstudianteID", "FechaRegistro", "Imagen", "Incidentes", "RegistrarIncidente" },
                 values: new object[,]
                 {
-                    { 1, "Actividad 1", 4, 16, 10, new DateTime(2024, 9, 25, 20, 40, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 2, "Actividad 2", 8, 7, 9, new DateTime(2024, 9, 25, 2, 14, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 3, "Actividad 3", 14, 6, 8, new DateTime(2024, 9, 26, 21, 1, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 4, "Actividad 4", 13, 18, 1, new DateTime(2024, 9, 26, 11, 11, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 5, "Actividad 5", 12, 6, 8, new DateTime(2024, 9, 25, 22, 1, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 6, "Actividad 6", 8, 17, 8, new DateTime(2024, 9, 26, 19, 24, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 7, "Actividad 7", 11, 13, 5, new DateTime(2024, 9, 25, 17, 28, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 8, "Actividad 8", 3, 15, 4, new DateTime(2024, 9, 26, 10, 11, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 9, "Actividad 9", 13, 10, 9, new DateTime(2024, 9, 25, 10, 29, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 10, "Actividad 10", 4, 10, 8, new DateTime(2024, 9, 26, 3, 6, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 11, "Actividad 11", 6, 6, 2, new DateTime(2024, 9, 25, 15, 47, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 12, "Actividad 12", 10, 8, 9, new DateTime(2024, 9, 26, 22, 21, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 13, "Actividad 13", 14, 19, 10, new DateTime(2024, 9, 26, 6, 11, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 14, "Actividad 14", 15, 16, 4, new DateTime(2024, 9, 25, 21, 46, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 15, "Actividad 15", 2, 1, 1, new DateTime(2024, 9, 26, 0, 27, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 16, "Actividad 16", 13, 14, 3, new DateTime(2024, 9, 26, 19, 27, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 17, "Actividad 17", 15, 8, 6, new DateTime(2024, 9, 26, 14, 57, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 18, "Actividad 18", 3, 8, 8, new DateTime(2024, 9, 26, 18, 28, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 19, "Actividad 19", 1, 6, 7, new DateTime(2024, 9, 26, 21, 6, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 20, "Actividad 20", 4, 18, 6, new DateTime(2024, 9, 26, 0, 11, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 21, "Actividad 21", 4, 16, 2, new DateTime(2024, 9, 25, 13, 24, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 22, "Actividad 22", 8, 17, 7, new DateTime(2024, 9, 26, 0, 53, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 23, "Actividad 23", 7, 10, 1, new DateTime(2024, 9, 26, 10, 9, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 24, "Actividad 24", 9, 6, 7, new DateTime(2024, 9, 25, 19, 27, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 25, "Actividad 25", 8, 1, 6, new DateTime(2024, 9, 25, 3, 26, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 26, "Actividad 26", 15, 7, 1, new DateTime(2024, 9, 26, 20, 16, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 27, "Actividad 27", 2, 11, 7, new DateTime(2024, 9, 26, 4, 26, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 28, "Actividad 28", 8, 19, 3, new DateTime(2024, 9, 25, 0, 31, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 29, "Actividad 29", 2, 10, 5, new DateTime(2024, 9, 26, 3, 22, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 30, "Actividad 30", 5, 2, 10, new DateTime(2024, 9, 25, 5, 31, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 31, "Actividad 31", 1, 20, 10, new DateTime(2024, 9, 26, 23, 7, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 32, "Actividad 32", 10, 1, 7, new DateTime(2024, 9, 26, 11, 42, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 33, "Actividad 33", 5, 20, 8, new DateTime(2024, 9, 26, 17, 54, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 34, "Actividad 34", 7, 19, 7, new DateTime(2024, 9, 25, 16, 38, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 35, "Actividad 35", 8, 2, 3, new DateTime(2024, 9, 25, 5, 45, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 36, "Actividad 36", 7, 5, 3, new DateTime(2024, 9, 26, 19, 0, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 37, "Actividad 37", 5, 1, 2, new DateTime(2024, 9, 26, 18, 42, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 38, "Actividad 38", 6, 2, 7, new DateTime(2024, 9, 26, 20, 51, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 39, "Actividad 39", 7, 9, 1, new DateTime(2024, 9, 26, 10, 50, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 40, "Actividad 40", 14, 16, 9, new DateTime(2024, 9, 26, 6, 12, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 41, "Actividad 41", 6, 12, 8, new DateTime(2024, 9, 26, 6, 52, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 42, "Actividad 42", 12, 16, 6, new DateTime(2024, 9, 26, 4, 15, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 43, "Actividad 43", 8, 7, 5, new DateTime(2024, 9, 26, 4, 20, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 44, "Actividad 44", 3, 18, 7, new DateTime(2024, 9, 25, 14, 31, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 45, "Actividad 45", 11, 17, 5, new DateTime(2024, 9, 26, 16, 6, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 46, "Actividad 46", 6, 2, 1, new DateTime(2024, 9, 26, 12, 43, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 47, "Actividad 47", 1, 1, 2, new DateTime(2024, 9, 25, 10, 35, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 48, "Actividad 48", 3, 15, 4, new DateTime(2024, 9, 26, 9, 13, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 49, "Actividad 49", 3, 16, 4, new DateTime(2024, 9, 26, 16, 35, 0, 0, DateTimeKind.Unspecified), "", false },
-                    { 50, "Actividad 50", 6, 17, 6, new DateTime(2024, 9, 25, 8, 41, 0, 0, DateTimeKind.Unspecified), "", false }
+                    { 1, "Actividad 1", 15, 1, 8, new DateTime(2024, 9, 26, 0, 59, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 2, "Actividad 2", 15, 10, 8, new DateTime(2024, 9, 26, 19, 32, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 3, "Actividad 3", 5, 9, 6, new DateTime(2024, 9, 26, 21, 1, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 4, "Actividad 4", 14, 19, 5, new DateTime(2024, 9, 25, 4, 25, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 5, "Actividad 5", 11, 16, 6, new DateTime(2024, 9, 26, 4, 30, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 6, "Actividad 6", 12, 13, 8, new DateTime(2024, 9, 26, 2, 10, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 7, "Actividad 7", 4, 18, 6, new DateTime(2024, 9, 25, 3, 10, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 8, "Actividad 8", 12, 9, 3, new DateTime(2024, 9, 25, 8, 29, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 9, "Actividad 9", 13, 8, 3, new DateTime(2024, 9, 26, 5, 21, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 10, "Actividad 10", 2, 11, 1, new DateTime(2024, 9, 26, 6, 45, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 11, "Actividad 11", 9, 16, 2, new DateTime(2024, 9, 25, 12, 16, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 12, "Actividad 12", 3, 16, 9, new DateTime(2024, 9, 25, 15, 54, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 13, "Actividad 13", 10, 16, 1, new DateTime(2024, 9, 26, 10, 57, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 14, "Actividad 14", 9, 3, 8, new DateTime(2024, 9, 25, 22, 22, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 15, "Actividad 15", 3, 18, 4, new DateTime(2024, 9, 25, 3, 2, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 16, "Actividad 16", 4, 10, 5, new DateTime(2024, 9, 25, 5, 13, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 17, "Actividad 17", 13, 18, 5, new DateTime(2024, 9, 25, 19, 18, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 18, "Actividad 18", 14, 18, 2, new DateTime(2024, 9, 26, 15, 15, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 19, "Actividad 19", 10, 13, 7, new DateTime(2024, 9, 25, 16, 55, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 20, "Actividad 20", 10, 3, 2, new DateTime(2024, 9, 25, 9, 13, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 21, "Actividad 21", 9, 9, 1, new DateTime(2024, 9, 25, 15, 56, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 22, "Actividad 22", 12, 5, 8, new DateTime(2024, 9, 25, 22, 10, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 23, "Actividad 23", 14, 10, 1, new DateTime(2024, 9, 25, 6, 49, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 24, "Actividad 24", 3, 5, 9, new DateTime(2024, 9, 25, 9, 23, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 25, "Actividad 25", 2, 6, 9, new DateTime(2024, 9, 25, 1, 34, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 26, "Actividad 26", 13, 3, 4, new DateTime(2024, 9, 26, 8, 25, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 27, "Actividad 27", 14, 13, 8, new DateTime(2024, 9, 26, 21, 21, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 28, "Actividad 28", 14, 18, 3, new DateTime(2024, 9, 26, 2, 28, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 29, "Actividad 29", 2, 3, 5, new DateTime(2024, 9, 26, 12, 29, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 30, "Actividad 30", 10, 1, 3, new DateTime(2024, 9, 26, 7, 41, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 31, "Actividad 31", 6, 3, 9, new DateTime(2024, 9, 25, 5, 59, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 32, "Actividad 32", 10, 2, 7, new DateTime(2024, 9, 26, 20, 30, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 33, "Actividad 33", 14, 5, 6, new DateTime(2024, 9, 26, 23, 7, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 34, "Actividad 34", 15, 8, 6, new DateTime(2024, 9, 25, 20, 37, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 35, "Actividad 35", 1, 3, 4, new DateTime(2024, 9, 25, 9, 4, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 36, "Actividad 36", 4, 10, 1, new DateTime(2024, 9, 26, 22, 39, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 37, "Actividad 37", 4, 5, 8, new DateTime(2024, 9, 25, 15, 23, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 38, "Actividad 38", 6, 8, 7, new DateTime(2024, 9, 26, 20, 41, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 39, "Actividad 39", 15, 18, 10, new DateTime(2024, 9, 26, 5, 27, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 40, "Actividad 40", 7, 14, 6, new DateTime(2024, 9, 26, 22, 46, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 41, "Actividad 41", 3, 18, 6, new DateTime(2024, 9, 26, 19, 45, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 42, "Actividad 42", 6, 15, 5, new DateTime(2024, 9, 26, 22, 29, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 43, "Actividad 43", 4, 17, 5, new DateTime(2024, 9, 26, 12, 19, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 44, "Actividad 44", 9, 20, 9, new DateTime(2024, 9, 26, 18, 45, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 45, "Actividad 45", 11, 12, 10, new DateTime(2024, 9, 26, 16, 21, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 46, "Actividad 46", 8, 10, 10, new DateTime(2024, 9, 26, 11, 15, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 47, "Actividad 47", 12, 4, 8, new DateTime(2024, 9, 25, 6, 48, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 48, "Actividad 48", 12, 1, 4, new DateTime(2024, 9, 25, 19, 13, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 49, "Actividad 49", 9, 16, 6, new DateTime(2024, 9, 25, 1, 30, 0, 0, DateTimeKind.Unspecified), null, "", false },
+                    { 50, "Actividad 50", 12, 11, 2, new DateTime(2024, 9, 26, 11, 31, 0, 0, DateTimeKind.Unspecified), null, "", false }
                 });
 
             migrationBuilder.CreateIndex(

@@ -25,16 +25,16 @@ namespace ControlEquiposComputo.Data
 
             // Datos de muestra para la tabla Docente
             modelBuilder.Entity<Docente>().HasData(
-                new Docente{DocenteID = 1,Nombre = "Juan",Apellido = "Pérez",Curso = "Inteligencia de Negocios",Email = "juan.perez@unc.edu.pe"},
-                new Docente{DocenteID = 2,Nombre = "María",Apellido = "Gómez",Curso = "Programación Aplicada",Email = "maria.gomez@unc.edu.pe"},
-                new Docente{DocenteID = 3,Nombre = "Luis",Apellido = "Fernández",Curso = "Base de datos",Email = "luis.fernandez@unc.edu.pe"},
-                new Docente{DocenteID = 4,Nombre = "Ana",Apellido = "Rodríguez",Curso = "Sistemas Inteligente",Email = "ana.rodriguez@unc.edu.pe"},
-                new Docente{DocenteID = 5,Nombre = "Carlos",Apellido = "López",Curso = "Algoritmos y Estructura de datos",Email = "carlos.lopez@unc.edu.pe"},
-                new Docente{DocenteID = 6,Nombre = "Sofía",Apellido = "Martínez",Curso = "Fundamentos de Programacíón",Email = "sofia.martinez@unc.edu.pe"},
-                new Docente{DocenteID = 7,Nombre = "Miguel",Apellido = "Torres",Curso = "Redes",Email = "miguel.torres@unc.edu.pe"},
-                new Docente{DocenteID = 8,Nombre = "Laura",Apellido = "Vega",Curso = "Ingeniería de software",Email = "laura.vega@unc.edu.pe"},
-                new Docente{DocenteID = 9,Nombre = "José",Apellido = "Ramírez",Curso = "Arquitectura de Computador",Email = "jose.ramirez@unc.edu.pe"},
-                new Docente{DocenteID = 10,Nombre = "Patricia",Apellido = "Silva",Curso = "Sistemas de Información",Email = "patricia.silva@unc.edu.pe"}
+                new Docente{DocenteID = 1,Nombre = "Juan", Contraseña = "Juan", Apellido = "Pérez",Curso = "Inteligencia de Negocios",Email = "juan.perez@unc.edu.pe"},
+                new Docente{DocenteID = 2,Nombre = "María", Contraseña = "Juan", Apellido = "Gómez",Curso = "Programación Aplicada",Email = "maria.gomez@unc.edu.pe"},
+                new Docente{DocenteID = 3,Nombre = "Luis",Contraseña = "Juan", Apellido = "Fernández",Curso = "Base de datos",Email = "luis.fernandez@unc.edu.pe"},
+                new Docente{DocenteID = 4,Nombre = "Ana",Contraseña = "Juan", Apellido = "Rodríguez",Curso = "Sistemas Inteligente",Email = "ana.rodriguez@unc.edu.pe"},
+                new Docente{DocenteID = 5,Nombre = "Carlos",Contraseña = "Juan", Apellido = "López",Curso = "Algoritmos y Estructura de datos",Email = "carlos.lopez@unc.edu.pe"},
+                new Docente{DocenteID = 6,Nombre = "Sofía",Contraseña = "Juan", Apellido = "Martínez",Curso = "Fundamentos de Programacíón",Email = "sofia.martinez@unc.edu.pe"},
+                new Docente{DocenteID = 7,Nombre = "Miguel", Contraseña = "Juan", Apellido = "Torres",Curso = "Redes",Email = "miguel.torres@unc.edu.pe"},
+                new Docente{DocenteID = 8,Nombre = "Laura",Contraseña = "Juan", Apellido = "Vega",Curso = "Ingeniería de software",Email = "laura.vega@unc.edu.pe"},
+                new Docente{DocenteID = 9,Nombre = "José", Contraseña = "Juan", Apellido = "Ramírez",Curso = "Arquitectura de Computador",Email = "jose.ramirez@unc.edu.pe"},
+                new Docente{DocenteID = 10,Nombre = "Patricia",Contraseña = "Juan", Apellido = "Silva",Curso = "Sistemas de Información",Email = "patricia.silva@unc.edu.pe"}
             );
 
             modelBuilder.Entity<Estudiante>().HasData(

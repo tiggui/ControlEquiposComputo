@@ -1,54 +1,81 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ControlEquiposComputo.Models; // Asegúrate de que este espacio de nombres sea correcto
+using ControlEquiposComputo.Models;
+using ControlEquiposComputo.ViewModels;
+
+using ControlEquiposComputo.Data;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace ControlEquiposComputo.Controllers
 {
     public class AccesoController : Controller
     {
-        // Método para mostrar la vista de registro
+        private readonly AppDbContext _context;
+
+        public AccesoController(AppDbContext appDbContext)
+        {
+            _context = appDbContext;
+
+        }
+
         [HttpGet]
         public IActionResult Registrar()
         {
-            return View(); // Este método debe devolver la vista
+            return View();
         }
 
-        // Método para manejar el registro (POST)
         [HttpPost]
-        public IActionResult Registrar(RegistroModel model)
+        public async Task<IActionResult> Registrar(DocenteVM modelo)
         {
-            if (ModelState.IsValid)
+            if (modelo.Contraseña != modelo.ConfirmarContraseña)
             {
-                switch (model.UserType)
-                {
-                    case "Docente":
-                        // Lógica para registrar como docente
-                        // Ejemplo: 
-                        var nuevoDocente = new Docente
-                        {
-                            Email = model.Email,
-                            // Otros campos necesarios
-                        };
-                        // Guardar en la base de datos
-                        break;
 
-                    case "Estudiante":
-                        // Lógica para registrar como estudiante
-                        break;
-
-                    case "Tecnico":
-                        // Lógica para registrar como técnico
-                        break;
-
-                    default:
-                        ModelState.AddModelError("", "Seleccione un tipo de usuario.");
-                        break;
-                }
-
-                // Redirigir después del registro exitoso
-                return RedirectToAction("Index", "Home");
+                ViewData["Mensaje"] = "Las contraseña no coinciden";
+                return View();
             }
 
-            return View(model); // Regresar al formulario si hay errores
+            Docente docente = new Docente()
+            {
+                Nombre = modelo.Nombre,
+                Apellido = modelo.Apellido,
+                Email = modelo.Email,
+                Contraseña = modelo.Contraseña,
+                Curso = modelo.Curso,
+            };
+
+            await _context.Docentes.AddAsync(docente);
+            await _context.SaveChangesAsync();
+
+            if (docente.DocenteID != 0)
+            {
+                return RedirectToAction("Login", "Acceso");
+            }
+            ViewData["Mensaje"] = "No se pudo crear el usuario";
+            return View();
+        }
+
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginVM modelo)
+        {
+            Docente? docente_encontradi = await _context.Docentes
+                            .Where(u => 
+                                u.Email == modelo.Email &&
+                                u.Contraseña==modelo.Contraseña
+                            ).FirstOrDefaultAsync();
+            if (docente_encontradi == null)
+            {
+                ViewData["Mensaje"] = "No se encontraron coincidencias";
+                return View();
+            }
+
+            return RedirectToAction("Index", "Home");
+
+
         }
 
     }

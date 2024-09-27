@@ -19,6 +19,10 @@ namespace ControlEquiposComputo.Models
         [StringLength(45, ErrorMessage = "El curso no puede exceder 45 caracteres")]
         public string Curso { get; set; }
 
+        [Required(ErrorMessage = "La contraseña es requerida")]
+        [StringLength(45, ErrorMessage = "El curso no puede exceder 45 caracteres")]
+        public string Contraseña { get; set; }
+
         [Required(ErrorMessage = "El email es requerido")]
         [EmailAddress(ErrorMessage = "Formato de correo no válido")]
         [StringLength(45, ErrorMessage = "El email no puede exceder 45 caracteres")]
