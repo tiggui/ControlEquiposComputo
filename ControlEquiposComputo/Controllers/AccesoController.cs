@@ -5,6 +5,11 @@ using ControlEquiposComputo.ViewModels;
 using ControlEquiposComputo.Data;
 using Microsoft.EntityFrameworkCore;
 
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+
+
 
 namespace ControlEquiposComputo.Controllers
 {
@@ -56,6 +61,10 @@ namespace ControlEquiposComputo.Controllers
 
         public IActionResult Login()
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Home");
+            }
             return View();
         }
 
@@ -72,6 +81,23 @@ namespace ControlEquiposComputo.Controllers
                 ViewData["Mensaje"] = "No se encontraron coincidencias";
                 return View();
             }
+
+            List<Claim> claims = new List<Claim>()
+            {
+                new Claim(ClaimTypes.Name, docente_encontradi.Nombre)
+            };
+
+            ClaimsIdentity claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            AuthenticationProperties properties = new AuthenticationProperties()
+            {
+                AllowRefresh = true,
+            };
+
+            await HttpContext.SignInAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme,
+                new ClaimsPrincipal(claimsIdentity),
+                properties
+                );
 
             return RedirectToAction("Index", "Home");
 

@@ -3,7 +3,12 @@ using Microsoft.EntityFrameworkCore;
 using ControlEquiposComputo.Data; // Cambia esto si es necesario
 using ControlEquiposComputo.Models; // Cambia esto si es necesario
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 
+
+[Authorize]
 public class LaboratorioController : Controller
 {
     private readonly AppDbContext _context;

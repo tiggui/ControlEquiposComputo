@@ -5,6 +5,12 @@ using ControlEquiposComputo.Models; // Cambia esto si es necesario
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
+
+
+[Authorize]
 public class ClaseController : Controller
 {
     private readonly AppDbContext _context;

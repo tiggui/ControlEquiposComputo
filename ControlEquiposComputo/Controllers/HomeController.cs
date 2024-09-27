@@ -2,6 +2,12 @@ using ControlEquiposComputo.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
+
+
+[Authorize]
 public class HomeController : Controller
 {
     private readonly AppDbContext _context;
@@ -30,5 +36,11 @@ public class HomeController : Controller
                                   .ToList();
 
         return PartialView("_UsoEquiposPartial", usoEquipos);  // Retorna la vista parcial
+    }
+
+    public async Task <IActionResult> Salir()
+    {
+        await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);   
+        return RedirectToAction("Login","Acceso");
     }
 }

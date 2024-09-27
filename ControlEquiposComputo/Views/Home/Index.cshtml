@@ -1,7 +1,16 @@
-﻿@model IEnumerable<ControlEquiposComputo.Models.Clase>
+﻿@using System.Security.Claims;
+@model IEnumerable<ControlEquiposComputo.Models.Clase>
 
 @{
     ViewData["Title"] = "Inicio";
+}
+
+@if (User.Identity!.IsAuthenticated)
+{
+    <h1 class="display-4">
+        Bienvenido
+        @User.Claims.Where(c=>c.Type == ClaimTypes.Name).Select(c=>c.Value).SingleOrDefault()
+    </h1>
 }
 
 <h2>Lista de Clases</h2>

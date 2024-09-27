@@ -4,7 +4,12 @@ using Microsoft.EntityFrameworkCore;
 using ControlEquiposComputo.Data;
 using ControlEquiposComputo.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 
+
+[Authorize]
 public class UsoEquipoController : Controller
 {
     private readonly AppDbContext _context;
