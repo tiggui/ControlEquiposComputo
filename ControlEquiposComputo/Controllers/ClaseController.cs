@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using ControlEquiposComputo.Data; // Cambia esto si es necesario
-using ControlEquiposComputo.Models; // Cambia esto si es necesario
+using ControlEquiposComputo.Data;
+using ControlEquiposComputo.Models; 
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
