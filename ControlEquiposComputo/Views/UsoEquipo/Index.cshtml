@@ -23,7 +23,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var uso in Model)
+        @foreach (var uso in Model.OrderByDescending(uso => uso.UsoEquipoID))
         {
             <tr>
                 <td>@uso.Estudiante.Nombre</td>
