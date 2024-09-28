@@ -153,25 +153,25 @@ namespace ControlEquiposComputo.Data
     );
 
             modelBuilder.Entity<Clase>().HasData(
-        new Clase { ClaseID = 1, DocenteID = 1, LaboratorioID = 1, NombreClase = "Física I", Inicio = new DateTime(2024, 09, 25, 9, 0, 0), Fin = new DateTime(2024, 09, 25, 11, 0, 0) },
-        new Clase { ClaseID = 2, DocenteID = 2, LaboratorioID = 1, NombreClase = "Física II", Inicio = new DateTime(2024, 09, 25, 11, 30, 0), Fin = new DateTime(2024, 09, 25, 13, 30, 0) },
+        new Clase { ClaseID = 1, DocenteID = 1, LaboratorioID = 1, NombreClase = "ASP.NET", Inicio = new DateTime(2024, 09, 25, 9, 0, 0), Fin = new DateTime(2024, 09, 25, 11, 0, 0) },
+        new Clase { ClaseID = 2, DocenteID = 2, LaboratorioID = 1, NombreClase = "Sistemas Inteligentes", Inicio = new DateTime(2024, 09, 25, 11, 30, 0), Fin = new DateTime(2024, 09, 25, 13, 30, 0) },
         new Clase { ClaseID = 3, DocenteID = 3, LaboratorioID = 2, NombreClase = "Programación Básica", Inicio = new DateTime(2024, 09, 25, 14, 0, 0), Fin = new DateTime(2024, 09, 25, 16, 0, 0) },
 
-        new Clase { ClaseID = 4, DocenteID = 1, LaboratorioID = 1, NombreClase = "Física I", Inicio = new DateTime(2024, 09, 26, 9, 0, 0), Fin = new DateTime(2024, 09, 26, 11, 0, 0) },
-        new Clase { ClaseID = 5, DocenteID = 2, LaboratorioID = 1, NombreClase = "Física II", Inicio = new DateTime(2024, 09, 26, 11, 30, 0), Fin = new DateTime(2024, 09, 26, 13, 30, 0) },
-        new Clase { ClaseID = 6, DocenteID = 3, LaboratorioID = 2, NombreClase = "Programación Básica", Inicio = new DateTime(2024, 09, 26, 14, 0, 0), Fin = new DateTime(2024, 09, 26, 16, 0, 0) },
+        new Clase { ClaseID = 4, DocenteID = 1, LaboratorioID = 1, NombreClase = "PowerBI", Inicio = new DateTime(2024, 09, 26, 9, 0, 0), Fin = new DateTime(2024, 09, 26, 11, 0, 0) },
+        new Clase { ClaseID = 5, DocenteID = 2, LaboratorioID = 1, NombreClase = "Visual Studio", Inicio = new DateTime(2024, 09, 26, 11, 30, 0), Fin = new DateTime(2024, 09, 26, 13, 30, 0) },
+        new Clase { ClaseID = 6, DocenteID = 3, LaboratorioID = 2, NombreClase = "ELT Y CUBO", Inicio = new DateTime(2024, 09, 26, 14, 0, 0), Fin = new DateTime(2024, 09, 26, 16, 0, 0) },
 
-        new Clase { ClaseID = 7, DocenteID = 1, LaboratorioID = 1, NombreClase = "Física I", Inicio = new DateTime(2024, 09, 27, 9, 0, 0), Fin = new DateTime(2024, 09, 27, 11, 0, 0) },
-        new Clase { ClaseID = 8, DocenteID = 2, LaboratorioID = 1, NombreClase = "Física II", Inicio = new DateTime(2024, 09, 27, 11, 30, 0), Fin = new DateTime(2024, 09, 27, 13, 30, 0) },
+        new Clase { ClaseID = 7, DocenteID = 1, LaboratorioID = 1, NombreClase = "Automatas", Inicio = new DateTime(2024, 09, 27, 9, 0, 0), Fin = new DateTime(2024, 09, 27, 11, 0, 0) },
+        new Clase { ClaseID = 8, DocenteID = 2, LaboratorioID = 1, NombreClase = "Progrmación 2", Inicio = new DateTime(2024, 09, 27, 11, 30, 0), Fin = new DateTime(2024, 09, 27, 13, 30, 0) },
         new Clase { ClaseID = 9, DocenteID = 3, LaboratorioID = 2, NombreClase = "Programación Básica", Inicio = new DateTime(2024, 09, 27, 14, 0, 0), Fin = new DateTime(2024, 09, 27, 16, 0, 0) },
 
-        new Clase { ClaseID = 10, DocenteID = 1, LaboratorioID = 1, NombreClase = "Química General", Inicio = new DateTime(2024, 09, 25, 9, 0, 0), Fin = new DateTime(2024, 09, 25, 11, 0, 0) },
-        new Clase { ClaseID = 11, DocenteID = 2, LaboratorioID = 1, NombreClase = "Química Orgánica", Inicio = new DateTime(2024, 09, 25, 11, 30, 0), Fin = new DateTime(2024, 09, 25, 13, 30, 0) },
-        new Clase { ClaseID = 12, DocenteID = 3, LaboratorioID = 2, NombreClase = "Química Inorgánica", Inicio = new DateTime(2024, 09, 25, 14, 0, 0), Fin = new DateTime(2024, 09, 25, 16, 0, 0) },
+        new Clase { ClaseID = 10, DocenteID = 1, LaboratorioID = 1, NombreClase = "Pyhton", Inicio = new DateTime(2024, 09, 25, 9, 0, 0), Fin = new DateTime(2024, 09, 25, 11, 0, 0) },
+        new Clase { ClaseID = 11, DocenteID = 2, LaboratorioID = 1, NombreClase = "Redes Neuronales", Inicio = new DateTime(2024, 09, 25, 11, 30, 0), Fin = new DateTime(2024, 09, 25, 13, 30, 0) },
+        new Clase { ClaseID = 12, DocenteID = 3, LaboratorioID = 2, NombreClase = "IA", Inicio = new DateTime(2024, 09, 25, 14, 0, 0), Fin = new DateTime(2024, 09, 25, 16, 0, 0) },
 
-        new Clase { ClaseID = 13, DocenteID = 1, LaboratorioID = 1, NombreClase = "Matemáticas I", Inicio = new DateTime(2024, 09, 26, 9, 0, 0), Fin = new DateTime(2024, 09, 26, 11, 0, 0) },
-        new Clase { ClaseID = 14, DocenteID = 2, LaboratorioID = 1, NombreClase = "Matemáticas II", Inicio = new DateTime(2024, 09, 26, 11, 30, 0), Fin = new DateTime(2024, 09, 26, 13, 30, 0) },
-        new Clase { ClaseID = 15, DocenteID = 3, LaboratorioID = 2, NombreClase = "Cálculo Diferencial", Inicio = new DateTime(2024, 09, 26, 14, 0, 0), Fin = new DateTime(2024, 09, 26, 16, 0, 0) }
+        new Clase { ClaseID = 13, DocenteID = 1, LaboratorioID = 1, NombreClase = "Automatas", Inicio = new DateTime(2024, 09, 26, 9, 0, 0), Fin = new DateTime(2024, 09, 26, 11, 0, 0) },
+        new Clase { ClaseID = 14, DocenteID = 2, LaboratorioID = 1, NombreClase = "Progrmación II", Inicio = new DateTime(2024, 09, 26, 11, 30, 0), Fin = new DateTime(2024, 09, 26, 13, 30, 0) },
+        new Clase { ClaseID = 15, DocenteID = 3, LaboratorioID = 2, NombreClase = "Visual studio", Inicio = new DateTime(2024, 09, 26, 14, 0, 0), Fin = new DateTime(2024, 09, 26, 16, 0, 0) }
     );
             Random random = new Random();
             DateTime startDate = new DateTime(2024, 09, 25);

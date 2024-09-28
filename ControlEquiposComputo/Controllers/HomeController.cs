@@ -35,6 +35,8 @@ public class HomeController : Controller
                                   .Include(u => u.Equipo)
                                   .ToList();
 
+      
+
         return PartialView("_UsoEquiposPartial", usoEquipos);  // Retorna la vista parcial
     }
 
@@ -43,4 +45,6 @@ public class HomeController : Controller
         await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);   
         return RedirectToAction("Login","Acceso");
     }
+
+    
 }

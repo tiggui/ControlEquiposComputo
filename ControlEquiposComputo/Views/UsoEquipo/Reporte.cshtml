@@ -15,8 +15,10 @@
         <tr>
             <th>Estudiante</th>
             <th>Equipo</th>
+
             <th>Clase</th>
             <th>Actividad</th>
+
             <th>Incidentes</th>
             <th>Imagen</th>
             <th></th>
@@ -30,7 +32,16 @@
                 <td>@uso.Equipo.NumeroEquipo</td>
                 <td>@uso.Clase.NombreClase</td>
                 <td>@uso.Actividad</td>
-                <td>@uso.Incidentes</td>
+                <td>
+                    @if (!string.IsNullOrEmpty(uso.Incidentes))
+                    {
+                        @uso.Incidentes
+                    }
+                    else
+                    {
+                        <span></span>
+                    }
+                </td>
                 <td>
                     @if (!string.IsNullOrEmpty(uso.Imagen))
                     {

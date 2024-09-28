@@ -1,13 +1,12 @@
-﻿using System.Threading.Tasks;
+﻿using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ControlEquiposComputo.Data;
 using ControlEquiposComputo.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
-
 
 [Authorize]
 public class UsoEquipoController : Controller
@@ -33,39 +32,39 @@ public class UsoEquipoController : Controller
     // GET: UsoEquipo/Create
     public IActionResult Create()
     {
-        ViewData["EstudianteID"] = new SelectList(_context.Estudiantes, "EstudianteID", "Nombre");
-        ViewData["EquipoID"] = new SelectList(_context.Equipos, "EquipoID", "NumeroEquipo");
-        ViewData["ClaseID"] = new SelectList(_context.Clases, "ClaseID", "NombreClase");
+        ViewBag.EstudianteID = new SelectList(_context.Estudiantes, "EstudianteID", "Nombre");
+        ViewBag.EquipoID = new SelectList(_context.Equipos, "EquipoID", "NumeroEquipo");
+        ViewBag.ClaseID = new SelectList(_context.Clases, "ClaseID", "NombreClase");
         return View();
     }
 
     // POST: UsoEquipo/Create
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create(UsoEquipo usoEquipo, IFormFile imagenArchivo)
+    public async Task<IActionResult> Create(UsoEquipo usoEquipo, IFormFile imagenFile)
     {
         if (ModelState.IsValid)
         {
-            // Manejo de la carga de la imagen
-            if (imagenArchivo != null && imagenArchivo.Length > 0)
+            // Manejo del archivo de imagen
+            if (imagenFile != null && imagenFile.Length > 0)
             {
-                var uploadDir = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
-                var fileName = Path.GetFileName(imagenArchivo.FileName);
-                var filePath = Path.Combine(uploadDir, fileName);
-                using (var stream = new FileStream(filePath, FileMode.Create))
+                var fileName = Path.GetFileName(imagenFile.FileName);
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", fileName);
+                using (var stream = new FileStream(path, FileMode.Create))
                 {
-                    await imagenArchivo.CopyToAsync(stream);
+                    await imagenFile.CopyToAsync(stream);
                 }
-                usoEquipo.Imagen = "/images/" + fileName; // Ruta de la imagen
+                usoEquipo.Imagen = $"/images/{fileName}"; // Almacena la ruta relativa de la imagen
             }
 
             _context.Add(usoEquipo);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-        ViewData["EstudianteID"] = new SelectList(_context.Estudiantes, "EstudianteID", "Nombre", usoEquipo.EstudianteID);
-        ViewData["EquipoID"] = new SelectList(_context.Equipos, "EquipoID", "NumeroEquipo", usoEquipo.EquipoID);
-        ViewData["ClaseID"] = new SelectList(_context.Clases, "ClaseID", "NombreClase", usoEquipo.ClaseID);
+
+        ViewBag.EstudianteID = new SelectList(_context.Estudiantes, "EstudianteID", "Nombre", usoEquipo.EstudianteID);
+        ViewBag.EquipoID = new SelectList(_context.Equipos, "EquipoID", "NumeroEquipo", usoEquipo.EquipoID);
+        ViewBag.ClaseID = new SelectList(_context.Clases, "ClaseID", "NombreClase", usoEquipo.ClaseID);
         return View(usoEquipo);
     }
 
@@ -86,7 +85,7 @@ public class UsoEquipoController : Controller
     // POST: UsoEquipo/Edit/5
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, UsoEquipo usoEquipo, IFormFile imagenArchivo)
+    public async Task<IActionResult> Edit(int id, UsoEquipo usoEquipo, IFormFile imagenFile)
     {
         if (id != usoEquipo.UsoEquipoID)
         {
@@ -98,14 +97,15 @@ public class UsoEquipoController : Controller
             try
             {
                 // Manejo de la carga de la imagen
-                if (imagenArchivo != null && imagenArchivo.Length > 0)
+                if (imagenFile != null && imagenFile.Length > 0)
                 {
                     var uploadDir = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images");
-                    var fileName = Path.GetFileName(imagenArchivo.FileName);
+                    var fileName = Path.GetFileName(imagenFile.FileName);
                     var filePath = Path.Combine(uploadDir, fileName);
+
                     using (var stream = new FileStream(filePath, FileMode.Create))
                     {
-                        await imagenArchivo.CopyToAsync(stream);
+                        await imagenFile.CopyToAsync(stream);
                     }
                     usoEquipo.Imagen = "/images/" + fileName; // Actualiza la ruta de la imagen
                 }

@@ -1,38 +1,45 @@
-﻿@model IEnumerable<ControlEquiposComputo.Models.Clase>
+﻿@model IEnumerable<ControlEquiposComputo.Models.UsoEquipo>
 
 @{
-    ViewData["Title"] = "Clases";
+    ViewData["Title"] = "Uso de Equipos";
 }
 
-<h1>Clases</h1>
+<h1>Uso de Equipos</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-primary">Crear Nueva Clase</a>
+    <a asp-action="Create" class="btn btn-primary">Crear Nuevo</a>
 </p>
 
 <table class="table">
     <thead>
         <tr>
-            <th>Nombre de Clase</th>
-            <th>Docente</th>
-            <th>Laboratorio</th>
-            <th>Inicio</th>
-            <th>Fin</th>
-            <th>Acciones</th>
+            <th>@Html.DisplayNameFor(model => model.First().Estudiante.Nombre)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Equipo.NumeroEquipo)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Clase.NombreClase)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Actividad)</th>
+            <th>@Html.DisplayNameFor(model => model.First().FechaRegistro)</th>
+            <th>@Html.DisplayNameFor(model => model.First().Imagen)</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.NombreClase</td>
-                <td>@item.Docente.Nombre</td>
-                <td>@item.Laboratorio.NombreLaboratorio</td>
-                <td>@item.Inicio</td>
-                <td>@item.Fin</td>
+                <td>@item.Estudiante.Nombre</td>
+                <td>@item.Equipo.NumeroEquipo</td>
+                <td>@item.Clase.NombreClase</td>
+                <td>@item.Actividad</td>
+                <td>@item.FechaRegistro.ToShortDateString()</td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.ClaseID" class="btn btn-warning">Editar</a>
-                    <a asp-action="Delete" asp-route-id="@item.ClaseID" class="btn btn-danger">Eliminar</a>
+                    @if (!string.IsNullOrEmpty(item.Imagen))
+                    {
+                        <img src="@item.Imagen" alt="Imagen" style="width:100px; height:auto;" />
+                    }
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.UsoEquipoID" class="btn btn-warning">Editar</a>
+                    <a asp-action="Delete" asp-route-id="@item.UsoEquipoID" class="btn btn-danger">Eliminar</a>
                 </td>
             </tr>
         }

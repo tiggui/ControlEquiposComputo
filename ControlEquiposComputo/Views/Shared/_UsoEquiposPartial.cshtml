@@ -1,11 +1,14 @@
 ﻿@model IEnumerable<ControlEquiposComputo.Models.UsoEquipo>
 
+@{
+    // Calcular el total de incidentes
+    var totalIncidentes = Model.Count(uso => !string.IsNullOrEmpty(uso.Incidentes));
+}
 
 @if (Model.Any())
-
 {
-    
-    
+    <h3>Total de incidentes registrados: @totalIncidentes</h3>
+
     <table class="table">
         <thead>
             <tr>
@@ -13,6 +16,7 @@
                 <th>Estudiante</th>
                 <th>Actividad</th>
                 <th>Incidente</th>
+                <th>Foto</th>
             </tr>
         </thead>
         <tbody>
@@ -22,7 +26,26 @@
                     <td>@uso.Equipo.NumeroEquipo</td>
                     <td>@uso.Estudiante.Nombre</td>
                     <td>@uso.Actividad</td>
-                    <td>@uso.Incidentes</td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(uso.Incidentes))
+                        {
+                            @uso.Incidentes
+                        }
+                        else
+                        {
+                            <span>No hay incidente</span>
+                        }
+                    </td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(uso.Imagen))
+                        {
+                            <img src="@uso.Imagen" alt="Imagen del equipo" style="max-width: 100px;" />
+                        }
+                        else
+                        {
+                            <span>No hay imagen disponible</span>
+                        }
+                    </td>
                 </tr>
             }
         </tbody>

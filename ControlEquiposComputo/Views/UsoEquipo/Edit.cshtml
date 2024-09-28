@@ -6,11 +6,11 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<div>
-    <a asp-action="Index">Volver a la lista</a>
+<div class="btn btn-primary">
+    <a style="text-decoration: none; color:white" asp-action="Index">Volver a la lista</a>
 </div>
 
-<form asp-action="Edit" method="post">
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
     @Html.HiddenFor(m => m.UsoEquipoID)
 
     <div class="form-group">
@@ -42,37 +42,57 @@
         @Html.CheckBoxFor(m => m.RegistrarIncidente, new { @id = "RegistrarIncidente" })
     </div>
 
-    <div class="form-group" id="incidenteField">
+    <div class="form-group" id="incidenteField" style="display:none;">
         @Html.LabelFor(m => m.Incidentes)
         @Html.TextAreaFor(m => m.Incidentes, new { @class = "form-control", rows = 3 })
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Imagen actual")
+        @if (!string.IsNullOrEmpty(Model.Imagen))
+        {
+            <div>
+                <img src="@Model.Imagen" alt="Imagen actual" style="max-width: 100px;" />
+            </div>
+        }
+        else
+        {
+            <p>No hay imagen disponible</p>
+        }
+
         <div class="form-group">
-            @Html.Label("Cargar Imagen")
-            <input type="file" name="imagenArchivo" class="form-control" accept="image/*" />
+            @Html.Label("Cargar nueva imagen")
+            <input type="file" name="imagenFile" class="form-control" accept="image/*" />
         </div>
     </div>
 
     <div class="form-group">
-        <input type="submit" value="Guardar" class="btn btn-primary" />
+        <input type="submit" value="Guardar cambios" class="btn btn-primary" />
     </div>
 </form>
 
 @section Scripts {
     <script>
         $(document).ready(function () {
-            $('#RegistrarIncidente').change(function () {
-                if ($(this).is(':checked')) {
-                    $('#incidenteField').show();
+            
+            var incidenteCheckbox = $('#RegistrarIncidente');
+            var incidenteField = $('#incidenteField');
+
+            function toggleIncidenteField() {
+                if (incidenteCheckbox.is(':checked')) {
+                    incidenteField.show();
                 } else {
-                    $('#incidenteField').hide();
-                    $('#UsoEquipo_Incidentes').val(''); // Limpiar el campo
+                    incidenteField.hide();
+                    $('#UsoEquipo_Incidentes').val(''); 
                 }
+            }
+
+            incidenteCheckbox.change(function () {
+                toggleIncidenteField();
             });
 
-            // Mostrar el campo si ya se registró un incidente
-            if ($('#UsoEquipo_Incidentes').val().length > 0) {
-                $('#RegistrarIncidente').prop('checked', true);
-                $('#incidenteField').show();
-            }
+            
+            toggleIncidenteField();
         });
     </script>
 }

@@ -32,10 +32,17 @@ namespace ControlEquiposComputo.Controllers
         [HttpPost]
         public async Task<IActionResult> Registrar(DocenteVM modelo)
         {
-            if (modelo.Contraseña != modelo.ConfirmarContraseña)
+            if (modelo.Contraseña != modelo.ConfirmarContraseña )
             {
 
                 ViewData["Mensaje"] = "Las contraseña no coinciden";
+                return View();
+            }
+
+            if (modelo.Contraseña.Length < 8)
+            {
+
+                ViewData["Mensaje"] = "La contraseña tiene que ser al menos de 8 Caracteres";
                 return View();
             }
 

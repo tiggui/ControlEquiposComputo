@@ -6,11 +6,11 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<div>
-    <a asp-action="Index">Volver a la lista</a>
+<div class="btn btn-primary">
+    <a style="text-decoration: none; color:white" asp-action="Index">Volver a la lista</a>
 </div>
 
-<form asp-action="Create" method="post">
+<form asp-action="Create" method="post" enctype="multipart/form-data">
     <div class="form-group">
         @Html.LabelFor(m => m.EstudianteID)
         @Html.DropDownListFor(m => m.EstudianteID, (SelectList)ViewData["EstudianteID"], "Seleccione un estudiante", new { @class = "form-control" })
@@ -45,7 +45,7 @@
         @Html.TextAreaFor(m => m.Incidentes, new { @class = "form-control", rows = 3 })
         <div class="form-group">
             @Html.Label("Cargar Imagen")
-            <input type="file" name="imagenArchivo" class="form-control" accept="image/*" />
+            <input type="file" name="imagenFile" class="form-control" accept="image/*" />
         </div>
     </div>
 
@@ -62,7 +62,7 @@
                     $('#incidenteField').show();
                 } else {
                     $('#incidenteField').hide();
-                    $('#UsoEquipo_Incidentes').val(''); // Limpiar el campo
+                    $('#UsoEquipo_Incidentes').val(''); 
                 }
             });
         });

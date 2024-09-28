@@ -1,58 +1,58 @@
-﻿@using System.Security.Claims;
-@model IEnumerable<ControlEquiposComputo.Models.Clase>
+﻿@model IEnumerable<ControlEquiposComputo.Models.Clase>
 
 @{
-    ViewData["Title"] = "Inicio";
+    ViewData["Title"] = "Clases y Uso de Equipos";
 }
 
-@if (User.Identity!.IsAuthenticated)
-{
-    <h1 class="display-4">
-        Bienvenido
-        @User.Claims.Where(c=>c.Type == ClaimTypes.Name).Select(c=>c.Value).SingleOrDefault()
-    </h1>
-}
+<h2>Seleccionar Clase</h2>
 
-<h2>Lista de Clases</h2>
+<!-- Selector de clase -->
+<div class="form-group">
+    <label for="claseSelector">Seleccionar Clase:</label>
 
-<!-- Dropdown para seleccionar una clase -->
-<select id="claseSelect" class="form-control">
-    <option value="">Seleccione una clase...</option>
-    @foreach (var clase in Model)
-    {
-        <option value="@clase.ClaseID">@clase.NombreClase</option>
-       
-    }
-    
-</select>
+    <select id="claseSelector" class="form-control">
+        <option value="">-- Seleccionar Clase --</option>
 
-<!-- Contenedor donde se mostrará la lista de UsoEquipos -->
-<div id="usoEquiposContainer">
-    <p>Seleccione una clase para ver los equipos usados.</p>
-
+        
+        @foreach (var clase in Model)
+        {
+            <option value="@clase.ClaseID">@clase.NombreClase     -    Fecha @clase.Inicio.ToShortDateString()   -   Inicio  @clase.Inicio.ToShortTimeString()   -   Fin  @clase.Fin.ToShortTimeString()</option>            
+        }
+    </select>
+   
 </div>
+
+<!-- Div para mostrar la fecha de la clase -->
+<div id="fechaClaseResult" class="mt-4"></div>
+
+<div id="usoEquiposResult" class="mt-4"></div>
 
 @section Scripts {
     <script>
         $(document).ready(function () {
-            // Cuando se selecciona una clase del dropdown
-            $('#claseSelect').change(function () {
+            
+            $("#claseSelector").change(function () {
                 var claseId = $(this).val();
                 if (claseId) {
-                    // Hacer una llamada AJAX al controlador Home para obtener los equipos de esa clase
                     $.ajax({
                         url: '@Url.Action("GetUsoEquiposPorClase", "Home")',
                         data: { claseId: claseId },
                         success: function (result) {
-                            // Reemplazar el contenido del contenedor con la vista parcial
-                            $('#usoEquiposContainer').html(result);
+                            $("#usoEquiposResult").html(result);
                         }
                     });
                 } else {
-                    // Limpiar el contenedor si no se selecciona ninguna clase
-                    $('#usoEquiposContainer').html('<p>Seleccione una clase para ver los equipos usados.</p>');
+                    $("#usoEquiposResult").html('');
                 }
             });
         });
+
+         $.ajax({
+                        url: '@Url.Action("GetFechaClase", "Home")',
+                        data: { claseId: claseId },
+                        success: function (fecha) {
+                            $("#fechaClaseResult").html("<strong>Fecha de la clase: </strong>" + fecha);
+                        }
+                    });
     </script>
 }
