@@ -1,8 +1,24 @@
 ﻿@model IEnumerable<ControlEquiposComputo.Models.Clase>
 
 @{
-    ViewData["Title"] = "Clases y Uso de Equipos";
+    ViewData["Title"] = "Inicio";
 }
+
+<div class="container mt-5 text-center">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="mb-4">Sistema de Gestión de Uso de Equipos de Cómputo</h2>
+            <p class="lead">
+                Este sistema permite gestionar el uso de equipos de cómputo en la facultad de Ingeniería de Sistemas. 
+                Los usuarios pueden registrar, editar y visualizar los detalles del uso de los equipos, incluyendo el estudiante asignado, 
+                la clase en la que se utiliza el equipo, la actividad realizada y cualquier incidente que ocurra durante su uso. 
+                Además, permite subir imágenes relacionadas con los equipos o los incidentes registrados, lo que proporciona un mayor control y trazabilidad.
+            </p>
+            <img src="/images/imagennnn.jpg" alt="Vista del sistema de gestión de equipos de cómputo" class="img-fluid mt-3" style="max-width: 400px;" />
+        </div>
+    </div>
+</div>
+
 
 <h2>Seleccionar Clase</h2>
 
@@ -21,6 +37,8 @@
     </select>
    
 </div>
+
+
 
 <!-- Div para mostrar la fecha de la clase -->
 <div id="fechaClaseResult" class="mt-4"></div>
